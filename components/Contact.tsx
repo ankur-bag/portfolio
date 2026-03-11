@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import ViewCounter from "./ViewCounter";
 
 export default function Contact() {
   return (
@@ -55,7 +56,10 @@ export default function Contact() {
                   </motion.a>
               </div>
            </div>
+           
         </div>
+        
+        <ViewCounter />
       </div>
 
       <style jsx>{`
