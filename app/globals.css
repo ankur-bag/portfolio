@@ -58,7 +58,13 @@ body {
 /* Custom Selection */
 ::selection {
   background-color: #ff6b00;
-  color: #000000;
+  --accent: 30 100% 50%;
+}
+
+.shadows-into-light-two-regular {
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

@@ -7,12 +7,11 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "WORKS", href: "#projects" },
-  { name: "ABOUT", href: "#about" },
-  { name: "JOURNEY", href: "#experience" },
-  { name: "TRIUMPHS", href: "#hackathons" },
-  { name: "STACK", href: "#tech-stack" },
-  { name: "CONTACT", href: "#contact" },
+  { name: "WORKS", href: "/#projects" },
+  { name: "ABOUT", href: "/#about" },
+  { name: "JOURNEY", href: "/#experience" },
+  { name: "AWARDS", href: "/#hackathons" },
+  { name: "STACK", href: "/#tech-stack" },
 ];
 
 export default function Navbar() {
@@ -30,14 +29,14 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-5xl rounded-full",
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[90%] lg:w-[75%] max-w-5xl rounded-full",
         scrolled 
-          ? "bg-white/70 backdrop-blur-xl border border-black/5 py-3 px-8 shadow-xl shadow-black/[0.03]" 
-          : "bg-transparent py-4 px-8"
+          ? "bg-white/20 backdrop-blur-xl border border-black/5 py-4 lg:py-5 px-6 lg:px-10 shadow-xl shadow-black/[0.03]" 
+          : "bg-transparent py-5 lg:py-6 px-6 lg:px-10"
       )}
     >
       <nav className="flex items-center justify-between">
-        <Link href="/" className="text-xl font-normal tracking-tighter hover:text-accent transition-colors flex items-center gap-1">
+        <Link href="/" className="text-xl text-gray-400 font-normal tracking-tighter hover:text-accent transition-colors flex items-center gap-1">
           AB<span className="text-accent italic font-accent">.</span>
         </Link>
 
@@ -47,7 +46,7 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[9px] font-medium tracking-[0.2em] text-gray-500 hover:text-black transition-colors relative group"
+              className="text-[10px] font-medium tracking-[0.2em] text-gray-500 hover:text-black transition-colors relative group"
             >
               {link.name}
               <motion.span 
@@ -55,12 +54,16 @@ export default function Navbar() {
               />
             </Link>
           ))}
-          <a 
-            href="mailto:ankurbag700@gmail.com"
-            className="px-5 py-1.5 bg-black text-white text-[9px] font-medium uppercase tracking-widest rounded-full hover:bg-accent transition-all duration-500 shadow-sm"
+          <motion.a 
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-5 py-2 bg-black text-white text-[9px] font-medium uppercase tracking-widest rounded-full hover:bg-accent transition-all duration-500 shadow-sm"
           >
-            TALK
-          </a>
+            Contact
+          </motion.a>
         </div>
 
         {/* Mobile Toggle */}
@@ -91,7 +94,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-2xl font-normal uppercase tracking-tighter hover:text-accent transition-colors block"
+                  className="text-2xl font-normal uppercase tracking-tighter text-black hover:text-accent transition-colors block"
                 >
                   {link.name}
                 </Link>

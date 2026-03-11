@@ -12,7 +12,7 @@ const achievements = [
     award: "WINNER",
     description: "Double Slash 4.0, a 36-hour long offline hackathon organized at Jadavpur University. Out of 300+ registered teams, the team secured a spot in the Top 30 finalists and ultimately emerged as the winners.",
     tech: "JU Offline • 36H Sprint",
-    date: "2024",
+    date: "2026",
   },
   {
     id: "02",
@@ -21,16 +21,16 @@ const achievements = [
     award: "WINNER",
     description: "ShowcaseX x Techsprint, powered by Hack2Skill. A high-stakes innovation arena focusing on rapid prototyping and technical execution.",
     tech: "Hack2Skill • Techsprint",
-    date: "2024",
+    date: "2025-26",
   },
   {
     id: "03",
     title: "Hello World Hacks",
     venue: "GDG on Campus RCCIIT",
-    award: "WINNER",
+    award: "WINNER - Best Beginer's Team Track",
     description: "Hello World Hacks is a month-long hybrid hackathon, organized by Google Developers Group on Campus RCC Institute of Information Technology and RCCTechz. Secured the **Best Beginner's Team Track Winner** title.",
     tech: "GDG on Campus • RCCTechz",
-    date: "2023",
+    date: "2024",
   },
 ];
 
@@ -46,15 +46,15 @@ export default function Hackathons() {
              whileInView={{ opacity: 1, x: 0 }}
              viewport={{ once: true }}
            >
-              <h2 className="text-7xl md:text-9xl font-normal uppercase tracking-tighter text-black leading-none">
-                Triumphs <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-6xl md:text-8xl">awards</span>
+              <h2 className="text-7xl md:text-9xl font-normal  tracking-tighter text-black leading-none">
+                Hackathon <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-6xl md:text-8xl">wins</span>
               </h2>
               <div className="w-16 h-px bg-accent/40 mt-10" />
            </motion.div>
            
            <div className="hidden md:block text-right">
-              <p className="text-gray-300 font-mono text-[10px] uppercase tracking-[0.5em]">Recognition & Impact</p>
-              <p className="text-black/40 text-xs font-medium uppercase mt-2">National Hackathon Circuit</p>
+              <p className="text-gray-500 font-mono text-[10px] uppercase tracking-[0.5em]">Recognition & Impact</p>
+            
            </div>
         </div>
 

@@ -4,20 +4,24 @@ import { motion } from "framer-motion";
 
 const techGroups = [
   {
-    category: "AI & INTELLIGENCE",
-    skills: ["RAG Systems", "LLM Integration", "Prompt Engineering", "AI Automations"],
+    category: "Languages",
+    skills: ["TypeScript", "JavaScript", "Python", "Java", "C"],
   },
   {
-    category: "CORE ARCHITECTURE",
-    skills: ["Next.js", "React.js", "TypeScript", "Node.js", "Express"],
+    category: "Web & Backend",
+    skills: ["Next.js", "React.js", "Node.js", "Express.js", "FastAPI", "Flask", "MongoDB", "Firebase", "Socket.io", "JWT"],
   },
   {
-    category: "DATA & SYSTEMS",
-    skills: ["MongoDB", "Firebase", "PostgreSQL", "REST APIs"],
+    category: "UI, 3D & Animation",
+    skills: ["Framer Motion", "GSAP", "Three.js", "WebGL", "TailwindCSS"],
   },
   {
-    category: "CREATIVE & DEV",
-    skills: ["GSAP", "Framer Motion", "Fabric.js", "Figma", "Git"],
+    category: "Tools & Platforms",
+    skills: ["Git", "GitHub", "Vercel", "Render", "Postman"],
+  },
+  {
+    category: "Data & Design",
+    skills: ["Figma", "Canva", "NumPy", "Pandas"],
   },
 ];
 
@@ -31,8 +35,8 @@ export default function TechStack() {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
            >
-              <h2 className="text-6xl md:text-8xl font-normal uppercase tracking-tighter text-black">
-                STACK <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl font-normal">tools</span>
+              <h2 className="text-6xl md:text-8xl font-normal  tracking-tighter text-black">
+                Stack <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl font-normal">tools</span>
               </h2>
               <p className="text-gray-400 font-mono text-[10px] uppercase tracking-[0.4em] mt-6 max-w-xs mx-auto">High-performance weapons of choice for digital construction.</p>
            </motion.div>

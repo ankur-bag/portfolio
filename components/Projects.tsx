@@ -1,60 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code2 } from "lucide-react";
+import { ArrowUpRight, Code2, Globe, Github } from "lucide-react";
+import Link from "next/link";
+import { projects } from "@/data/projects";
 
-const projects = [
-  {
-    id: "01",
-    title: "Cosmic Canvas",
-    category: "AI • DESIGN • CREATIVITY",
-    description: "AI-generated designs with human-level control. Cosmic Canvas bridges the gap between raw AI creativity and precise, layer-based editing for professional results.",
-    tags: ["Hugging Face", "Fabric.js", "Python Flask"],
-    mainPortion: "AI Image Gen • Smart Layouts • Professional Toolkit",
-  },
-  {
-    id: "02",
-    title: "AI Code Reviewer",
-    category: "AI • DEVELOPMENT • TOOL",
-    description: "An AI-powered service using Google's Gemini model to analyze code snippets and provide structured, actionable, and detailed feedback to developers.",
-    tags: ["Gemini AI", "Node.js", "React"],
-    mainPortion: "Automated Reviews • Structured Feedback • Retry Logic",
-  },
-  {
-    id: "03",
-    title: "Bihaan 2025",
-    category: "EVENT • UI/UX • ANIMATION",
-    description: "The official event website for RCCIIT's flagship festival Bihaan’25. Features complex Framer Motion choreographies and a seamless responsive architecture.",
-    tags: ["Next.js", "Tailwind CSS", "Animation"],
-    mainPortion: "Festival Vision • Smooth UX • Interactive Event Map",
-  },
-  {
-    id: "04",
-    title: "GDGC RCCIIT",
-    category: "COMMUNITY • WEB • PORTAL",
-    description: "The official digital home for Google Developer Groups Community RCCIIT. A modern, high-performance portal showcasing vision, events, and initiatives.",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    mainPortion: "Community Vision • Event Initiatives • Modern UX",
-  },
-  {
-     id: "05",
-     title: "Attendance Buddy",
-     category: "AUTOMATION • UTILITY • WEB",
-     description: "Engineered for efficiency. Tap-to-generate attendance lists for engineering lectures, eliminating the chore of manual roll-call collection.",
-     tags: ["Next.js", "Framer Motion", "Automation"],
-     mainPortion: "No Databases • One-Tap List Gen • Lazy Engineer's Tool",
-  },
-  {
-     id: "06",
-     title: "Zynor",
-     category: "AI • GENERATION • MODEL",
-     description: "A cutting-edge Image and Video generation model platform. Built for high-speed creative output and seamless user interaction.",
-     tags: ["Frontend", "AI Models", "Next.js"],
-     mainPortion: "High-Speed Gen • Model Contribution • Modern UI",
-  }
-];
+interface ProjectsProps {
+  limit?: number;
+  title?: React.ReactNode;
+}
 
-export default function Projects() {
+export default function Projects({ limit, title }: ProjectsProps) {
+  const displayedProjects = limit ? projects.slice(0, limit) : projects;
+
   return (
     <section id="projects" className="py-32 px-4 md:px-12 border-t border-black/5 bg-white">
       <div className="max-w-[1400px] mx-auto">
@@ -65,12 +23,14 @@ export default function Projects() {
              viewport={{ once: true }}
              transition={{ duration: 1 }}
            >
-              <h2 className="text-[12vw] md:text-[8vw] font-normal tracking-tighter uppercase leading-[0.85] mb-8 text-black">
-                Works <br /> <span className="text-accent font-accent lowercase tracking-normal italic font-normal">gallery</span>
+              <h2 className="text-[10vw] md:text-[8vw] font-normal tracking-tighter  leading-[0.85] mb-8 text-black">
+                {title || (
+                  <>Project <br /> <span className="text-accent font-accent lowercase tracking-normal italic font-normal">gallery</span></>
+                )}
               </h2>
               <div className="flex items-center justify-center gap-2">
                  <span className="h-px w-12 bg-accent/20" />
-                 <p className="text-gray-400 font-mono text-[9px] uppercase tracking-[0.4em] leading-relaxed">
+                 <p className="text-gray-600 font-mono text-[9px] uppercase tracking-[0.4em] leading-relaxed">
                    Handpicked selection
                  </p>
                  <span className="h-px w-12 bg-accent/20" />
@@ -79,7 +39,7 @@ export default function Projects() {
         </div>
 
         <div className="flex flex-col gap-[10vw]">
-          {projects.map((project, index) => (
+          {displayedProjects.map((project, index) => (
             <div key={project.id} className="group relative">
                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                   <div className="lg:col-span-1 hidden lg:block">
@@ -127,12 +87,19 @@ export default function Projects() {
                            </span>
                         ))}
                      </div>
-
+ 
                      <div className="flex gap-8">
-                        <a href="#" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest border-b border-accent/20 pb-1 hover:border-accent hover:gap-5 transition-all text-black">
-                           EXPLORE <ArrowUpRight size={16} className="text-accent" />
-                        </a>
-                     </div>
+                        {project.liveUrl && (
+                          <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.liveUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
+                              <Globe size={25} />
+                          </motion.a>
+                        )}
+                        {project.githubUrl && (
+                          <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.githubUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
+                              <Github size={25} />
+                          </motion.a>
+                        )}
+                      </div>
                   </div>
 
                   <div className="lg:col-span-6 relative aspect-video overflow-hidden rounded-[2.5rem] border border-black/5 shadow-2xl shadow-black/[0.01] group/img bg-white">
@@ -141,7 +108,15 @@ export default function Projects() {
                         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                         className="w-full h-full bg-black/[0.01] flex items-center justify-center relative backdrop-blur-3xl overflow-hidden"
                      >
-                        <Code2 size={100} className="text-black/[0.03] group-hover/img:text-accent/10 transition-colors duration-1000" />
+                        {project.imageUrl ? (
+                          <img 
+                            src={project.imageUrl} 
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <Code2 size={100} className="text-black/[0.03] group-hover/img:text-accent/10 transition-colors duration-1000" />
+                        )}
                         
                         {/* Interactive overlay */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-accent/5 to-transparent opacity-0 group-hover/img:opacity-100 transition-opacity duration-700" />
@@ -151,19 +126,41 @@ export default function Projects() {
                         </div>
                      </motion.div>
                      
-                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-black text-white flex items-center justify-center scale-0 group-hover/img:scale-100 transition-transform duration-500 shadow-2xl shadow-black/20 z-20">
-                        <ArrowUpRight size={32} strokeWidth={2} />
-                     </div>
+                     {project.liveUrl && (
+                       <a 
+                         href={project.liveUrl} 
+                         target="_blank"
+                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-black text-white flex items-center justify-center scale-0 group-hover/img:scale-100 transition-transform duration-500 shadow-2xl shadow-black/20 z-20"
+                       >
+                          <ArrowUpRight size={32} strokeWidth={2} />
+                       </a>
+                     )}
                   </div>
                </div>
                
                {/* Decorative separator */}
-               {index !== projects.length - 1 && (
+               {index !== displayedProjects.length - 1 && (
                   <div className="mt-24 w-full h-px bg-gradient-to-r from-transparent via-black/[0.05] to-transparent" />
                )}
             </div>
           ))}
         </div>
+
+        {limit && projects.length > limit && (
+          <div className="mt-32 flex justify-center">
+            <Link href="/projects">
+              <motion.a 
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="group relative inline-flex items-center gap-4 px-12 py-6 bg-black text-white rounded-full overflow-hidden transition-all duration-500 hover:bg-accent hover:gap-6 shadow-2xl shadow-black/10"
+              >
+                <span className="relative z-10 text-xs font-medium uppercase tracking-[0.3em]">View all Projects</span>
+                <ArrowUpRight size={18} className="relative z-10" />
+                <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              </motion.a>
+            </Link>
+          </div>
+        )}
       </div>
       
       <style jsx>{`
