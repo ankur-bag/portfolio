@@ -36,7 +36,7 @@ export const projects = [
      title: "Zynor",
      category: "AI • GENERATION • MODEL",
      description: "A cutting-edge Image and Video generation model platform. Built for high-speed creative output and seamless user interaction.",
-     tags: ["Frontend", "AI Models", "Next.js"],
+     tags: ["Frontend", "Next.js"],
      mainPortion: "Modern UI",
      liveUrl: "https://zynor-lyart.vercel.app/",
      imageUrl: "https://i.postimg.cc/QdB085b9/Whats-App-Image-2026-03-11-at-5-46-04-PM.jpg"
