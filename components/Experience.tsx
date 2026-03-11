@@ -9,7 +9,7 @@ const experiences = [
     company: "Resourcio Pvt. Ltd.",
     status: "ACTIVE",
     period: "Nov 2025 — Present",
-    description: "Architecting and developing frontend systems for multiple high-impact platforms: \n\n • Zynor — AI image & video generation platform \n • Apertre 3.0 — 30-day open-source program by the Resourcio Community \n • Resourcio Official Website — company website and digital presence",
+    description: "Architecting and developing frontend systems for multiple high-impact platforms: \n\n Zynor — AI image & video generation platform \n Apertre 3.0 — 30-day open-source program by the Resourcio Community \n Resourcio Official Website — company website and digital presence",
     highlights: ["Next.js / TypeScript"],
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6BUk0uhGiBa1r7-NjVJTXbe1itCl19rcl2Q&s"
   },

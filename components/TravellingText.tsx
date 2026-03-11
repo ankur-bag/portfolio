@@ -27,10 +27,10 @@ export default function TravellingText() {
         const hRect = heroAnchor.getBoundingClientRect();
         const aRect = aboutAnchor.getBoundingClientRect();
         
-        const hX = hRect.left + window.scrollX + hRect.width / 1.5;
-        const hY = hRect.top + window.scrollY + hRect.height / 1.5;
-        const aX = aRect.left + window.scrollX + aRect.width / 1.5;
-        const aY = aRect.top + window.scrollY + aRect.height / 1.5;
+        const hX = Math.round(hRect.left + window.scrollX + hRect.width / 1.5);
+        const hY = Math.round(hRect.top + window.scrollY + hRect.height / 1.5);
+        const aX = Math.round(aRect.left + window.scrollX + aRect.width / 1.5);
+        const aY = Math.round(aRect.top + window.scrollY + aRect.height / 1.5);
 
         setHeroPos({ x: hX, y: hY });
         setTargetPos({ x: aX, y: aY });
@@ -98,16 +98,14 @@ export default function TravellingText() {
   }, [hasAnimated, currentAnchorX, currentAnchorY]);
 
   const animatedX = currentAnchorX; 
-  const animatedY = useTransform([currentAnchorY, scrollY], ([latestAnchorY, latestScrollY]: number[]) => {
-    return latestAnchorY - latestScrollY;
-  });
+  const animatedY = currentAnchorY;
 
   if (!isReady) return null;
 
   return (
     <motion.div
       style={{
-        position: "fixed",
+        position: "absolute",
         top: 0,
         left: 0,
         x: animatedX,
@@ -116,6 +114,8 @@ export default function TravellingText() {
         pointerEvents: "none",
         translateX: "-50%",
         translateY: "-50%",
+        willChange: "transform",
+        backfaceVisibility: "hidden",
       }}
     >
       <SpinningText

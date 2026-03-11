@@ -41,16 +41,40 @@ export default function Preloader() {
           }}
           className="fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center pointer-events-auto"
         >
-          {/* Subtle staggered entrance for the name */}
           <div className="relative overflow-visible mb-8 h-20 md:h-28 flex items-center px-4">
-            <motion.h1
-              initial={{ y: "100%", skewY: 10 }}
-              animate={{ y: 0, skewY: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              className="text-5xl md:text-8xl font-normal tracking-tighter text-white uppercase select-none"
-            >
-              ANKUR <span className="text-accent italic font-accent lowercase tracking-normal">BAG</span>
-            </motion.h1>
+            <h1 className="text-5xl md:text-8xl font-normal tracking-tighter text-white uppercase select-none flex">
+              {"ANKUR".split("").map((char, i) => (
+                <motion.span
+                  key={`name-${i}`}
+                  initial={{ y: "100%", skewY: 10, opacity: 0 }}
+                  animate={{ y: 0, skewY: 0, opacity: 1 }}
+                  transition={{ 
+                    duration: 1.2, 
+                    ease: [0.16, 1, 0.3, 1], 
+                    delay: 0.1 + (i * 0.05) 
+                  }}
+                  className="inline-block"
+                >
+                  {char}
+                </motion.span>
+              ))}
+              <span className="w-[0.3em]" />
+              {"BAG".split("").map((char, i) => (
+                <motion.span
+                  key={`bag-${i}`}
+                  initial={{ y: "100%", skewY: 10, opacity: 0 }}
+                  animate={{ y: 0, skewY: 0, opacity: 1 }}
+                  transition={{ 
+                    duration: 1.2, 
+                    ease: [0.16, 1, 0.3, 1], 
+                    delay: 0.4 + (i * 0.05) 
+                  }}
+                  className="text-accent italic font-accent lowercase tracking-normal inline-block"
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </h1>
           </div>
 
           {/* Minimalist Progress Meter */}
