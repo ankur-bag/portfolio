@@ -29,10 +29,10 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[90%] lg:w-[75%] max-w-5xl rounded-full",
+        "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] lg:w-[85%] xl:w-[75%] max-w-5xl rounded-full",
         scrolled 
-          ? "bg-white/20 backdrop-blur-xl border border-black/5 py-4 lg:py-5 px-6 lg:px-10 shadow-xl shadow-black/[0.03]" 
-          : "bg-transparent py-5 lg:py-6 px-6 lg:px-10"
+          ? "bg-white/20 backdrop-blur-xl border border-black/5 py-3 lg:py-5 px-6 lg:px-10 shadow-xl shadow-black/[0.03]" 
+          : "bg-transparent py-4 lg:py-6 px-6 lg:px-10"
       )}
     >
       <nav className="flex items-center justify-between">
@@ -41,7 +41,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}

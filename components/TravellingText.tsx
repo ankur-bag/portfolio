@@ -1,106 +1,134 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
-import { motion, animate, useMotionValue, useTransform, useScroll } from "framer-motion";
+import { useEffect, useState, useRef, useCallback } from "react";
+import { motion, animate, useMotionValue } from "framer-motion";
 import { SpinningText } from "./ui/basic";
 
+type ScreenSize = "mobile" | "laptop-sm" | "laptop-md" | "laptop-lg" | "desktop";
+
+function getScreenSize(width: number): ScreenSize {
+  if (width < 768) return "mobile";
+  if (width < 1440) return "laptop-sm";    // 1366×768 typical Windows laptop
+  if (width < 1536) return "laptop-md";    // 1440×900 MacBook
+  if (width < 1920) return "laptop-lg";    // 1536×864 large laptop
+  return "desktop";
+}
+
+const SPINNING_CONFIG: Record<ScreenSize, { radius: number; fontSize: string; size: string }> = {
+  "mobile":     { radius: 26, fontSize: "5px",   size: "w-[240px] h-[240px]" },
+  "laptop-sm":  { radius: 28, fontSize: "6px",   size: "w-[260px] h-[260px]" }, // 1366
+  "laptop-md":  { radius: 30, fontSize: "6.5px", size: "w-[280px] h-[280px]" }, // 1440
+  "laptop-lg":  { radius: 34, fontSize: "7px",   size: "w-[320px] h-[320px]" }, // 1536
+  "desktop":    { radius: 34, fontSize: "6.5px", size: "w-[320px] h-[320px]" },
+};
+
 export default function TravellingText() {
-  const [isMobile, setIsMobile] = useState(false);
-  const [heroPos, setHeroPos] = useState({ x: 0, y: 0 });
-  const [targetPos, setTargetPos] = useState({ x: 0, y: 0 });
+  const [screenSize, setScreenSize] = useState<ScreenSize>("desktop");
   const [isReady, setIsReady] = useState(false);
-  const [hasAnimated, setHasAnimated] = useState(false);
   
+  const hasAnimatedRef = useRef(false);
+  const isAnimatingRef = useRef(false);
   const currentAnchorX = useMotionValue(0);
   const currentAnchorY = useMotionValue(0);
-  const { scrollY } = useScroll();
+
+  const getAnchorPosition = useCallback((id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return null;
+    const rect = el.getBoundingClientRect();
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    return {
+      x: Math.round(rect.left + scrollLeft + rect.width / 2),
+      y: Math.round(rect.top + scrollTop + rect.height / 2),
+    };
+  }, []);
 
   useEffect(() => {
-    const updateAnchors = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
+    setScreenSize(getScreenSize(window.innerWidth));
 
-      const heroAnchor = document.getElementById("hero-text-anchor");
-      const aboutAnchor = document.getElementById("about-text-anchor");
-      
-      if (heroAnchor && aboutAnchor) {
-        const hRect = heroAnchor.getBoundingClientRect();
-        const aRect = aboutAnchor.getBoundingClientRect();
-        
-        const hX = Math.round(hRect.left + window.scrollX + hRect.width / 1.5);
-        const hY = Math.round(hRect.top + window.scrollY + hRect.height / 1.5);
-        const aX = Math.round(aRect.left + window.scrollX + aRect.width / 1.5);
-        const aY = Math.round(aRect.top + window.scrollY + aRect.height / 1.5);
-
-        setHeroPos({ x: hX, y: hY });
-        setTargetPos({ x: aX, y: aY });
-        
-        // On mobile, always stay at hero position
-        if (mobile) {
-           currentAnchorX.set(hX);
-           currentAnchorY.set(hY);
-        } else {
-           if (!hasAnimated) {
-             currentAnchorX.set(hX);
-             currentAnchorY.set(hY);
-           } else {
-             currentAnchorX.set(aX);
-             currentAnchorY.set(aY);
-           }
-        }
+    // Initial positioning
+    const initPositions = () => {
+      const heroPos = getAnchorPosition("hero-text-anchor");
+      if (heroPos) {
+        currentAnchorX.set(heroPos.x);
+        currentAnchorY.set(heroPos.y);
         setIsReady(true);
       }
     };
 
-    updateAnchors();
-    const timer = setTimeout(updateAnchors, 800); // Wait for page to settle
+    initPositions();
+    const timer = setTimeout(initPositions, 1000);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (window.innerWidth < 768) return; // Disable travel on mobile
+    // Scroll-based detection (Lenis smooth scroll compatible)
+    const handleScroll = () => {
+      if (window.innerWidth < 768) return;
+      if (isAnimatingRef.current) return;
 
-        const entry = entries[0];
-        if (entry.isIntersecting) {
-          triggerMove(true);
-        } else if (entry.boundingClientRect.top > 0) {
-          triggerMove(false);
-        }
-      },
-      { threshold: 0.1 }
-    );
+      const aboutAnchor = document.getElementById("about-text-anchor");
+      if (!aboutAnchor) return;
 
-    const aboutAnchor = document.getElementById("about-text-anchor");
-    if (aboutAnchor) {
-      observer.observe(aboutAnchor);
-    }
+      const rect = aboutAnchor.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      
+      // About anchor is visible in the viewport
+      const aboutIsVisible = rect.top < viewportHeight * 0.7 && rect.bottom > 0;
+      // About anchor is fully below viewport (user scrolled back up)
+      const aboutIsBelowViewport = rect.top > viewportHeight;
+
+      if (aboutIsVisible && !hasAnimatedRef.current) {
+        triggerMove(true);
+      } else if (aboutIsBelowViewport && hasAnimatedRef.current) {
+        triggerMove(false);
+      }
+    };
 
     const triggerMove = (toTarget: boolean) => {
       if (window.innerWidth < 768) return;
 
-      const targetAnchor = document.getElementById(toTarget ? "about-text-anchor" : "hero-text-anchor");
-      if (targetAnchor) {
-        const tRect = targetAnchor.getBoundingClientRect();
-        const tX = tRect.left + window.scrollX + tRect.width / 2;
-        const tY = tRect.top + window.scrollY + tRect.height / 2;
-        
-        setHasAnimated(toTarget);
-        animate(currentAnchorX, tX, { duration: 1.2, ease: [0.16, 1, 0.3, 1] });
-        animate(currentAnchorY, tY, { duration: 1.2, ease: [0.16, 1, 0.3, 1] });
+      const targetId = toTarget ? "about-text-anchor" : "hero-text-anchor";
+      const pos = getAnchorPosition(targetId);
+      if (!pos) return;
+
+      hasAnimatedRef.current = toTarget;
+      isAnimatingRef.current = true;
+
+      animate(currentAnchorX, pos.x, { 
+        duration: 1.2, 
+        ease: [0.16, 1, 0.3, 1],
+      });
+      animate(currentAnchorY, pos.y, { 
+        duration: 1.2, 
+        ease: [0.16, 1, 0.3, 1],
+        onComplete: () => { isAnimatingRef.current = false; }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    const handleResize = () => {
+      const w = window.innerWidth;
+      setScreenSize(getScreenSize(w));
+
+      const targetId = hasAnimatedRef.current ? "about-text-anchor" : "hero-text-anchor";
+      const pos = getAnchorPosition(w < 768 ? "hero-text-anchor" : targetId);
+      if (pos) {
+        currentAnchorX.set(pos.x);
+        currentAnchorY.set(pos.y);
       }
     };
 
-    window.addEventListener("resize", updateAnchors);
+    window.addEventListener("resize", handleResize);
+
     return () => {
-      window.removeEventListener("resize", updateAnchors);
-      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
       clearTimeout(timer);
     };
-  }, [hasAnimated, currentAnchorX, currentAnchorY]);
-
-  const animatedX = currentAnchorX; 
-  const animatedY = currentAnchorY;
+  }, [currentAnchorX, currentAnchorY, getAnchorPosition]);
 
   if (!isReady) return null;
+
+  const config = SPINNING_CONFIG[screenSize];
 
   return (
     <motion.div
@@ -108,8 +136,8 @@ export default function TravellingText() {
         position: "absolute",
         top: 0,
         left: 0,
-        x: animatedX,
-        y: animatedY,
+        x: currentAnchorX,
+        y: currentAnchorY,
         zIndex: 100,
         pointerEvents: "none",
         translateX: "-50%",
@@ -120,11 +148,11 @@ export default function TravellingText() {
     >
       <SpinningText
         text="DESIGN • ENGINEERING • AI • AUTOMATION • BUILDING DIGITAL PRODUCTS • REPEAT •"
-        radius={isMobile ? 26 : 34}
-        fontSize={isMobile ? "5px" : "6.5px"}
+        radius={config.radius}
+        fontSize={config.fontSize}
         textClassName="tracking-[0.15em] font-semibold fill-gray-500"
         speed={25}
-        className={isMobile ? "w-[240px] h-[240px]" : "w-[320px] h-[320px]"}
+        className={config.size}
       />
     </motion.div>
   );

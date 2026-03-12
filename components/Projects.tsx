@@ -23,7 +23,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
              viewport={{ once: true }}
              transition={{ duration: 1 }}
            >
-              <h2 className="text-[10vw] md:text-[8vw] font-normal tracking-tighter  leading-[0.85] mb-8 text-black">
+              <h2 className="text-[10vw] lg:text-[clamp(6rem,8vw,10rem)] font-normal tracking-tighter leading-[0.85] mb-8 text-black">
                 {title || (
                   <>Project <br /> <span className="text-accent font-accent lowercase tracking-normal italic font-normal">gallery</span></>
                 )}
@@ -57,14 +57,14 @@ export default function Projects({ limit, title }: ProjectsProps) {
                      >
                         <span className="w-1 h-1 bg-accent rounded-full" /> {project.category}
                      </motion.p>
-                     <motion.h3 
-                       initial={{ opacity: 0, y: 20 }}
-                       whileInView={{ opacity: 1, y: 0 }}
-                       viewport={{ once: true }}
-                       className="text-4xl md:text-5xl font-normal  mb-8 group-hover:text-accent transition-colors duration-500 text-black"
-                      >
-                       {project.title}
-                     </motion.h3>
+                      <motion.h3 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-3xl xl:text-5xl font-normal mb-8 group-hover:text-accent transition-colors duration-500 text-black leading-tight"
+                       >
+                        {project.title}
+                      </motion.h3>
                      <motion.p 
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}

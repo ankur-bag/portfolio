@@ -6,7 +6,24 @@ import { motion } from "framer-motion";
 
 export default function GithubHeatmap() {
   const [data, setData] = useState<{ date: string; count: number; level: number }[]>([]);
+  const [blockSize, setBlockSize] = useState(18);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 640) setBlockSize(8);
+      else if (width < 768) setBlockSize(10);
+      else if (width < 1024) setBlockSize(12);
+      else if (width < 1440) setBlockSize(14); // Laptop 1366
+      else if (width < 1536) setBlockSize(15); // Laptop 1440
+      else setBlockSize(18); // Large Laptop + Desktop
+    };
+    
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const fetchContributions = async () => {
@@ -68,8 +85,8 @@ export default function GithubHeatmap() {
               <div className="overflow-x-auto w-full flex justify-center no-scrollbar text-gray-500">
                 <ActivityCalendar
                   data={data as any}
-                  blockSize={18}
-                  blockMargin={6}
+                  blockSize={blockSize}
+                  blockMargin={blockSize / 3}
                   fontSize={12}
                   colorScheme="light"
                   theme={{

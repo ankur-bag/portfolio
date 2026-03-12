@@ -30,16 +30,16 @@ export default function TechStack() {
     <section id="tech-stack" className="py-24 px-6 md:px-12 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center mb-24 gap-6">
-           <motion.div
-             initial={{ opacity: 0, y: 30 }}
-             whileInView={{ opacity: 1, y: 0 }}
-             viewport={{ once: true }}
-           >
-              <h2 className="text-6xl md:text-8xl font-normal  tracking-tighter text-black">
-                Stack <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl font-normal">tools</span>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-6xl lg:text-[clamp(4rem,6vw,7rem)] font-normal tracking-tighter text-black">
+                Stack <span className="font-accent italic text-accent lowercase tracking-normal text-5xl lg:text-[clamp(3.5rem,5vw,6rem)] font-normal">tools</span>
               </h2>
               <p className="text-gray-400 font-mono text-[10px] uppercase tracking-[0.4em] mt-6 max-w-xs mx-auto">High-performance weapons of choice for digital construction.</p>
-           </motion.div>
+            </motion.div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

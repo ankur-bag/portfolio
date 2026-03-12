@@ -11,6 +11,7 @@ import TextType from "@/components/ui/TextType";
 
 export default function Hero() {
   const [startAnim, setStartAnim] = useState(false);
+  const [showSubtext, setShowSubtext] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const title1Ref = useRef<HTMLSpanElement>(null);
   const subTextRef = useRef<HTMLParagraphElement>(null);
@@ -24,31 +25,45 @@ export default function Hero() {
     return () => window.removeEventListener('preloaderFinished', handleExit);
   }, []);
 
+  // Delay the subtitle appearance so the animation is visible after the preloader exits
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+    if (!startAnim) return;
+    const timer = setTimeout(() => setShowSubtext(true), 1200);
+    return () => clearTimeout(timer);
+  }, [startAnim]);
 
-      tl.fromTo(
-        title1Ref.current,
-        { y: 150, skewY: 7, opacity: 0 },
-        { y: 0, skewY: 0, opacity: 1, duration: 1.8, delay: 0.6 }
-      )
-        .fromTo(
-          ".hero-ui-stagger",
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 1, stagger: 0.1 },
-          "-=0.8"
+  useEffect(() => {
+    if (!startAnim) return;
+
+    // Small delay to ensure the preloader exit animation has started
+    const timeout = setTimeout(() => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+
+        tl.fromTo(
+          title1Ref.current,
+          { y: 150, skewY: 7, opacity: 0 },
+          { y: 0, skewY: 0, opacity: 1, duration: 1.8 }
         )
-        .fromTo(
-          ".hero-line-decorator",
-          { scaleX: 0 },
-          { scaleX: 1, duration: 2, ease: "expo.inOut" },
-          "-=1.5"
-        );
-    }, containerRef);
+          .fromTo(
+            ".hero-ui-stagger",
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 1, stagger: 0.1 },
+            "-=0.8"
+          )
+          .fromTo(
+            ".hero-line-decorator",
+            { scaleX: 0 },
+            { scaleX: 1, duration: 2, ease: "expo.inOut" },
+            "-=1.5"
+          );
+      }, containerRef);
 
-    return () => ctx.revert();
-  }, []);
+      return () => ctx.revert();
+    }, 400);
+
+    return () => clearTimeout(timeout);
+  }, [startAnim]);
 
   return (
     <section
@@ -85,16 +100,16 @@ export default function Hero() {
           <div className="flex flex-col gap-4">
             <h1 className="leading-[0.8] tracking-tighter uppercase relative">
               <span className="overflow-visible block py-4 mb-2 px-2 -ml-2">
-                <span ref={title1Ref} className="block text-[15vw] md:text-[11vw] font-normal text-black whitespace-nowrap">
+                <span ref={title1Ref} className="block text-[15vw] lg:text-[clamp(8rem,11vw,12rem)] font-normal text-black whitespace-nowrap" style={{ opacity: 0 }}>
                   Ankur <span className="text-accent italic font-accent lowercase tracking-normal inline-block pr-[0.1em]">Bag</span>
                 </span>
               </span>
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-            <div className="lg:col-span-6">
-              {startAnim ? (
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
+            <div className="lg:col-span-4">
+              {showSubtext ? (
                 <div className="flex flex-wrap gap-x-[0.3em] text-xl md:text-3xl text-gray-400 leading-tight font-medium max-w-2xl">
                   <BlurText text="Building" delay={50} className="inline-block" />
                   <BlurText text="intelligent interfaces" delay={50} className="text-black inline-block" />
@@ -109,7 +124,7 @@ export default function Hero() {
               )}
             </div>
 
-            <div className="lg:col-span-2 flex justify-center items-center py-20 lg:py-0 hero-ui-stagger overflow-visible">
+            <div className="lg:col-span-4 flex justify-center items-center py-24 lg:py-16 xl:py-20 hero-ui-stagger overflow-visible">
               <div id="hero-text-anchor" className="w-8 h-8 pointer-events-none opacity-0" />
             </div>
 

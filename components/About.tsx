@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 md:px-12 border-t border-black/5 bg-white">
+    <section id="about" className="py-32 px-6 md:px-12  bg-white relative">
+      <div id="about-text-anchor" className="absolute top-16 left-40 lg:top-20 lg:left-48 w-8 h-8 pointer-events-none opacity-0" />
       <div className="max-w-[1400px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-32 items-center">
           <div className="lg:col-span-5">
@@ -12,9 +13,8 @@ export default function About() {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-[12vw] md:text-[8vw] font-normal tracking-tighter leading-[0.85] mb-8 text-black relative"
+              className="text-[12vw] md:text-[8vw] font-normal tracking-tighter leading-[0.85] mb-8 text-black"
             >
-              <div id="about-text-anchor" className="absolute left-0 lg:-left-24 -top-10 lg:-top-20 w-8 h-8 pointer-events-none opacity-0" />
               About <br /> <span className="text-accent font-accent lowercase tracking-normal italic opacity-100 font-normal">me</span> <br />
             </motion.h2>
 

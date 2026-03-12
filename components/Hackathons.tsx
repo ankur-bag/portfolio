@@ -41,16 +41,16 @@ export default function Hackathons() {
     <section id="hackathons" className="py-32 px-6 md:px-12 bg-white relative overflow-hidden ">
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-28">
-           <motion.div
-             initial={{ opacity: 0, x: -30 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             viewport={{ once: true }}
-           >
-              <h2 className="text-7xl md:text-9xl font-normal  tracking-tighter text-black leading-none">
-                Hackathon <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-6xl md:text-8xl">wins</span>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-7xl lg:text-[clamp(5rem,7vw,8rem)] font-normal tracking-tighter text-black leading-none">
+                Hackathon <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-6xl lg:text-[clamp(4rem,6vw,7rem)]">wins</span>
               </h2>
               <div className="w-16 h-px bg-accent/40 mt-10" />
-           </motion.div>
+            </motion.div>
            
            <div className="hidden md:block text-right">
               <p className="text-gray-500 font-mono text-[10px] uppercase tracking-[0.5em]">Recognition & Impact</p>
@@ -72,14 +72,14 @@ export default function Hackathons() {
               className="group relative rounded-[2.5rem] overflow-hidden border border-black/[0.03] bg-black/[0.01] transition-all duration-700 hover:border-accent/30 hover:bg-white hover:shadow-2xl hover:shadow-black/[0.03]"
             >
               <div className="p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10">
-                <div className="flex items-center gap-12 flex-1">
-                   <div className="text-5xl font-normal font-mono text-black/[0.12] group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
+                <div className="flex items-center gap-6 xl:gap-12 flex-1">
+                   <div className="text-4xl xl:text-5xl font-normal font-mono text-black/[0.12] group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
                    <div className="flex flex-col">
                       <div className="flex items-center gap-3 mb-2">
                          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                          <span className="text-accent font-medium text-[10px] uppercase tracking-widest">{item.award}</span>
                       </div>
-                      <h3 className="text-4xl md:text-5xl font-normal uppercase text-black leading-tight group-hover:tracking-tight transition-all duration-700">{item.title}</h3>
+                      <h3 className="text-3xl xl:text-5xl font-normal uppercase text-black leading-tight group-hover:tracking-tight transition-all duration-700">{item.title}</h3>
                       <p className="text-[10px] font-mono text-gray-400 uppercase tracking-[0.3em] mt-3">{item.venue}</p>
                    </div>
                 </div>
