@@ -12,10 +12,10 @@ export const projects = [
   },
   {
     id: "02",
-    title: "GDGC RCCIIT",
+    title: "GDGoC RCCIIT",
     category: "COMMUNITY • WEB • PORTAL",
     description: "The official digital home for Google Developer Groups Community RCCIIT. A modern, high-performance portal showcasing vision, events, and initiatives.",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    tags: ["Next.js", "Typescript", "Framer Motion", "Frontend Libraries"],
     mainPortion: "Community Vision • Event Initiatives • Modern UX",
     imageUrl: "https://i.postimg.cc/LXZTtZ5H/18dd1b12-2b95-499a-a67b-559b8624a958.jpg",
     liveUrl: "https://www.gdgcrcc.tech/"
@@ -36,8 +36,8 @@ export const projects = [
      title: "Zynor",
      category: "AI • GENERATION • MODEL",
      description: "A cutting-edge Image and Video generation model platform. Built for high-speed creative output and seamless user interaction.",
-     tags: ["Frontend", "Next.js"],
-     mainPortion: "Modern UI",
+     tags: ["Frontend", "Next.js", "Typescript", "Frammer Motion"],
+     mainPortion: "Modern UI • Image and Video Generation",
      liveUrl: "https://zynor-lyart.vercel.app/",
      imageUrl: "https://i.postimg.cc/QdB085b9/Whats-App-Image-2026-03-11-at-5-46-04-PM.jpg"
   },
@@ -46,7 +46,7 @@ export const projects = [
      title: "Resourcio Pvt Ltd",
      category: "COMPANY • OFFICIAL • WEB",
      description: "The official digital presence for Resourcio Pvt Ltd. A high-performance corporate platform showcasing services, mission, and professional impact.",
-     tags: ["Next.js", "Corporate", "Frontend"],
+     tags: ["Next.js", "Typescript", "Frontend", "Frammer Motion"],
      mainPortion: "Company Vision • Service Showcase • Modern UI",
      imageUrl: "https://i.postimg.cc/wjt0qJV1/Whats-App-Image-2026-03-11-at-5-48-22-PM.jpg",
      liveUrl: "https://www.resourcio.in/"

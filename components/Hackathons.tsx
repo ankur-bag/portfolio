@@ -11,7 +11,7 @@ const achievements = [
     venue: "Jadavpur University",
     award: "WINNER",
     description: "Double Slash 4.0, a 36-hour long offline hackathon organized at Jadavpur University. Out of 300+ registered teams, the team secured a spot in the Top 30 finalists and ultimately emerged as the winners.",
-    tech: "JU Offline • 36H Sprint",
+    tech: "IEEE JU • 36H Sprint",
     date: "2026",
   },
   {
@@ -38,7 +38,7 @@ export default function Hackathons() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section id="hackathons" className="py-32 px-6 md:px-12 bg-white relative overflow-hidden border-t border-black/5">
+    <section id="hackathons" className="py-32 px-6 md:px-12 bg-white relative overflow-hidden ">
       <div className="max-w-[1400px] mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-28">
            <motion.div
@@ -73,7 +73,7 @@ export default function Hackathons() {
             >
               <div className="p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10">
                 <div className="flex items-center gap-12 flex-1">
-                   <div className="text-5xl font-normal font-mono text-black/[0.03] group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
+                   <div className="text-5xl font-normal font-mono text-black/[0.12] group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
                    <div className="flex flex-col">
                       <div className="flex items-center gap-3 mb-2">
                          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
@@ -86,8 +86,8 @@ export default function Hackathons() {
 
                 <div className="flex items-center gap-10">
                    <div className="hidden lg:block text-right space-y-2">
-                      <div className="text-[9px] font-bold text-black uppercase tracking-widest">{item.date}</div>
-                      <div className="text-[10px] font-medium text-gray-300 uppercase tracking-widest">{item.tech.split('•')[0]}</div>
+                      <div className="text-[15px]  text-black uppercase tracking-widest">{item.date}</div>
+                      <div className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">{item.tech.split('•')[0]}</div>
                    </div>
                    <div className="w-16 h-16 rounded-full border border-black/5 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all duration-700">
                       {hoveredIndex === index ? <Minus size={24} /> : <Plus size={24} />}

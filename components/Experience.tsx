@@ -7,7 +7,7 @@ const experiences = [
   {
     role: "Frontend Developer",
     company: "Resourcio Pvt. Ltd.",
-    status: "ACTIVE",
+    status: "INTERN",
     period: "Nov 2025 — Present",
     description: "Architecting and developing frontend systems for multiple high-impact platforms: \n\n Zynor — AI image & video generation platform \n Apertre 3.0 — 30-day open-source program by the Resourcio Community \n Resourcio Official Website — company website and digital presence",
     highlights: ["Next.js / TypeScript"],

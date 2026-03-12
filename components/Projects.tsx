@@ -14,7 +14,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
   const displayedProjects = limit ? projects.slice(0, limit) : projects;
 
   return (
-    <section id="projects" className="py-32 px-4 md:px-12 border-t border-black/5 bg-white">
+    <section id="projects" className="py-32 px-4 md:px-12  bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center mb-24 gap-6">
            <motion.div
@@ -43,7 +43,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
             <div key={project.id} className="group relative">
                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                   <div className="lg:col-span-1 hidden lg:block">
-                     <span className="text-[8vw] font-normal text-black/[0.03] leading-none transition-colors group-hover:text-accent/5">
+                     <span className="text-[8vw] font-normal text-black/[0.04] leading-none transition-colors group-hover:text-accent/6">
                         {project.id}
                      </span>
                   </div>
@@ -61,7 +61,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
                        initial={{ opacity: 0, y: 20 }}
                        whileInView={{ opacity: 1, y: 0 }}
                        viewport={{ once: true }}
-                       className="text-4xl md:text-5xl font-normal uppercase mb-8 group-hover:text-accent transition-colors duration-500 text-black"
+                       className="text-4xl md:text-5xl font-normal  mb-8 group-hover:text-accent transition-colors duration-500 text-black"
                       >
                        {project.title}
                      </motion.h3>

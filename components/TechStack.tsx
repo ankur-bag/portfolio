@@ -53,7 +53,7 @@ export default function TechStack() {
               whileHover={{ y: -10 }}
               className="p-10 bg-black/[0.01] backdrop-blur-sm border border-black/5 rounded-[2.5rem] hover:border-accent/40 hover:bg-white hover:shadow-xl hover:shadow-black/[0.02] transition-all duration-700 group cursor-default h-full relative overflow-hidden"
             >
-              <div className="absolute top-0 right-0 p-8 text-black/[0.03] font-normal text-6xl pointer-events-none group-hover:text-accent/5 transition-colors">
+              <div className="absolute top-0 right-0 p-8 text-black/[0.05] font-normal text-6xl pointer-events-none group-hover:text-accent/10 transition-colors">
                  {index + 1}
               </div>
               
