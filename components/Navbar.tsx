@@ -7,11 +7,12 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "WORKS", href: "/#projects" },
   { name: "ABOUT", href: "/#about" },
-  { name: "JOURNEY", href: "/#experience" },
+  { name: "WORKS", href: "/#projects" },
   { name: "AWARDS", href: "/#hackathons" },
+  { name: "JOURNEY", href: "/#experience" },
   { name: "STACK", href: "/#tech-stack" },
+  { name: "RESUME", href: "/@ankur_bag-resume.pdf", external: true },
 ];
 
 export default function Navbar() {
@@ -25,6 +26,27 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const id = href.replace("/#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+        setIsOpen(false);
+      }
+    }
+  };
 
   return (
     <header
@@ -46,6 +68,9 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              onClick={(e) => !link.external && handleSmoothScroll(e, link.href)}
               className="text-[10px] font-medium tracking-[0.2em] text-gray-500 hover:text-black transition-colors relative group"
             >
               {link.name}
@@ -93,7 +118,9 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  onClick={(e) => !link.external ? handleSmoothScroll(e, link.href) : setIsOpen(false)}
                   className="text-2xl font-normal uppercase tracking-tighter text-black hover:text-accent transition-colors block"
                 >
                   {link.name}

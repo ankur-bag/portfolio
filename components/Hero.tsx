@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
-import { ArrowDownRight, Github, Mail, Globe, Linkedin } from "lucide-react";
+import { ArrowDownRight, Github, Mail, Globe, Linkedin, FileText, Download } from "lucide-react";
 
 import { SpinningText } from "@/components/ui/basic";
 import BlurText from "@/components/ui/BlurText";
@@ -135,17 +135,33 @@ export default function Hero() {
                   href="#projects"
                   whileHover={{ scale: 1.02, y: -2 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium bg-black text-white px-7 py-4 md:px-10 md:py-5 rounded-full hover:bg-accent transition-all duration-700 shadow-2xl shadow-black/10 overflow-hidden"
+                  className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium bg-black text-white px-7 py-4 md:px-10 md:py-5 rounded-full hover:bg-black/90 transition-all duration-700 shadow-2xl shadow-black/10 overflow-hidden"
                 >
                   <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest">Explore Works</span>
                   <ArrowDownRight size={16} className="relative z-10 group-hover:rotate-45 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.16, 1, 0.3, 1]" />
                 </motion.a>
 
+                <motion.a
+                  href="/@ankur_bag-resume.pdf"
+                  download="Ankur_Bag_Resume.pdf"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium border border-black/30 px-7 py-4 md:px-10 md:py-5 rounded-full hover:border-accent transition-all duration-500 overflow-hidden"
+                >
+                  <div className="absolute inset-x-0 bottom-0 h-0 bg-accent group-hover:h-full transition-all duration-500 ease-out opacity-[0.03] pointer-events-none" />
+                  <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest text-gray-700 group-hover:text-accent transition-colors">Download CV</span>
+                  <div className="relative z-10 p-1 bg-gray-50 group-hover:bg-accent/10 rounded-lg transition-colors overflow-hidden">
+                    <Download size={14} className="text-gray-400 group-hover:text-accent group-hover:-translate-y-full transition-transform duration-500" />
+                    <Download size={14} className="text-accent absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 p-1" />
+                  </div>
+                </motion.a>
+
                 <div className="flex gap-2">
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://github.com/ankur-bag" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent"><Github size={18} /></motion.a>
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://www.linkedin.com/in/ankur-bag-017664314/ " target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent"><Linkedin size={18} /></motion.a>
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com" target="_blank" rel="noopener noreferrer" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent"><Mail size={18} /></motion.a>
+                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://github.com/ankur-bag" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="GitHub"><Github size={18} /></motion.a>
+                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://www.linkedin.com/in/ankur-bag-017664314/ " target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="LinkedIn"><Linkedin size={18} /></motion.a>
+                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com" target="_blank" rel="noopener noreferrer" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="Mail"><Mail size={18} /></motion.a>
+                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="/@ankur_bag-resume.pdf" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="Resume"><FileText size={18} /></motion.a>
                 </div>
               </div>
             </div>
