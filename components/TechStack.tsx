@@ -27,7 +27,7 @@ const techGroups = [
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="py-24 px-6 md:px-12 border-t border-black/5 bg-white">
+    <section id="tech-stack" className="py-24 px-6 md:px-12 bg-white">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col items-center text-center mb-24 gap-6">
            <motion.div
