@@ -26,7 +26,7 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6 md:px-12 bg-white relative overflow-hidden border-t border-black/5">
+    <section id="experience" className="py-32 px-6 md:px-12 bg-white relative overflow-hidden ">
       {/* Editorial Grid Base */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.02]">
         <div className="absolute inset-x-0 h-px bg-black top-1/4" />
