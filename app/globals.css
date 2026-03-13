@@ -7,9 +7,9 @@
   --color-gray-soft: #f4f4f4;
   --color-gray-border: #e0e0e0;
   
-  --font-sans: "Google Sans Flex", "Inter", sans-serif;
+  --font-sans: var(--font-geist-sans), "Inter", sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
-  --font-accent: "Quintessential", cursive;
+  --font-accent: var(--font-quintessential), cursive;
 }
 
 body {

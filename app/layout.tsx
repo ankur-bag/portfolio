@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
+import { SmoothScroll, Preloader, Noise } from "@/components/ClientWrappers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,12 +13,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import { Quintessential } from "next/font/google";
+
+const quintessential = Quintessential({
+  variable: "--font-quintessential",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 import StructuredData from "@/components/StructuredData";
 import SEOContext from "@/components/SEOContext";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#000000",
 };
 
 export const metadata: Metadata = {
@@ -83,7 +92,7 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
@@ -93,10 +102,6 @@ export const metadata: Metadata = {
 };
 
 
-
-import Preloader from "@/components/Preloader";
-import Noise from "@/components/Noise";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -104,24 +109,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bitcount+Grid+Single:wght@100..900&family=Bungee&family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Jersey+25&family=Lexend:wght@100..900&family=Liter&family=Metamorphous&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mozilla+Headline:wght@200..700&family=Poiret+One&family=Quintessential&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet" />
-      </head>
+      <head />
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground selection:bg-accent selection:text-background overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} ${quintessential.variable} antialiased bg-background text-foreground selection:bg-accent selection:text-background overflow-x-hidden`}
       >
         <StructuredData />
         <SEOContext />
         <Preloader />
-        <Noise />
         <SmoothScroll>
           {children}
         </SmoothScroll>
+        <Noise />
       </body>
     </html>
   );
