@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -15,6 +15,11 @@ const geistMono = Geist_Mono({
 
 import StructuredData from "@/components/StructuredData";
 import SEOContext from "@/components/SEOContext";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.ankurbag.tech"),
@@ -37,12 +42,19 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   alternates: {
     canonical: "https://www.ankurbag.tech",
   },
   verification: {
-    google: "YOUR_VERIFICATION_CODE", // Replace with actual code from Search Console
+    google: "jHkctzXqPaYapbRARvJD-feb542ZJoNsvBqf1HarIIo",
   },
   openGraph: {
     title: "Ankur Bag | Full Stack Developer & GenAI Builder",
@@ -70,11 +82,17 @@ export const metadata: Metadata = {
     creator: "@ankur_bag",
   },
   icons: {
-    icon: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
 };
+
+
 
 import Preloader from "@/components/Preloader";
 import Noise from "@/components/Noise";
