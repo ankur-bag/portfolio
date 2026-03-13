@@ -47,7 +47,7 @@ export default function Hackathons() {
               viewport={{ once: true }}
             >
               <h2 className="text-7xl lg:text-[clamp(5rem,7vw,8rem)] font-normal tracking-tighter text-black leading-none">
-                Hackathon <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-6xl lg:text-[clamp(4rem,6vw,7rem)]">wins</span>
+                Hackathon <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-6xl lg:text-[clamp(4rem,6vw,7rem)]">win</span>
               </h2>
               <div className="w-16 h-px bg-accent/40 mt-10" />
             </motion.div>
@@ -123,12 +123,6 @@ export default function Hackathons() {
         </div>
       </div>
 
-      <style jsx>{`
-        .font-accent {
-          font-family: var(--font-accent);
-          font-weight: 400;
-        }
-      `}</style>
     </section>
   );
 }

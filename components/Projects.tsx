@@ -164,12 +164,6 @@ export default function Projects({ limit, title }: ProjectsProps) {
         )}
       </div>
       
-      <style jsx>{`
-        .font-accent {
-          font-family: var(--font-accent);
-          font-weight: 400;
-        }
-      `}</style>
     </section>
   );
 }

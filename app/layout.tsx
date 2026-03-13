@@ -1,25 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll, Preloader, Noise } from "@/components/ClientWrappers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-import { Quintessential } from "next/font/google";
-
-const quintessential = Quintessential({
-  variable: "--font-quintessential",
-  subsets: ["latin"],
-  weight: "400",
-});
 
 import StructuredData from "@/components/StructuredData";
 import SEOContext from "@/components/SEOContext";
@@ -109,10 +90,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Quintessential&display=swap" rel="stylesheet" />
+      </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${quintessential.variable} antialiased bg-background text-foreground selection:bg-accent selection:text-background overflow-x-hidden`}
+        className="antialiased bg-background text-foreground selection:bg-accent selection:text-white overflow-x-hidden"
       >
         <StructuredData />
         <SEOContext />

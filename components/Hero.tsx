@@ -101,7 +101,7 @@ export default function Hero() {
             <h1 className="leading-[0.8] tracking-tighter uppercase relative">
               <span className="overflow-visible block py-4 mb-2 px-2 -ml-2">
                 <span ref={title1Ref} className="block text-[15vw] lg:text-[clamp(8rem,11vw,12rem)] font-normal text-black whitespace-nowrap" style={{ opacity: 0 }}>
-                  Ankur <span className="text-accent italic font-accent lowercase tracking-normal inline-block pr-[0.1em]">Bag</span>
+                  Ankur <span className="text-accent italic font-accent lowercase tracking-normal inline-block pr-[0.1em]">bag</span>
                 </span>
               </span>
             </h1>
@@ -193,12 +193,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <style jsx>{`
-        .font-accent {
-          font-family: var(--font-accent);
-          font-weight: 400;
-        }
-      `}</style>
     </section>
   );
 }

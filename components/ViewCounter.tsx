@@ -74,7 +74,7 @@ export default function ViewCounter() {
                   <NumberCounter value={views || 1200} />
                 </span>
                 <span className="font-accent italic text-accent lowercase tracking-normal text-xl leading-none">
-                  Digital Impressions
+                  digital impressions
                 </span>
               </div>
             </div>
@@ -82,12 +82,6 @@ export default function ViewCounter() {
         )}
       </AnimatePresence>
 
-      <style jsx>{`
-        .font-accent {
-          font-family: var(--font-accent);
-          font-weight: 400;
-        }
-      `}</style>
     </div>
   );
 }

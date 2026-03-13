@@ -62,7 +62,7 @@ export default function GithubHeatmap() {
               viewport={{ once: true }}
             >
               <h2 className="text-6xl md:text-8xl font-normal  tracking-tighter text-black">
-                Powered by <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl">Coffee</span> & <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl">Commits</span>
+                Powered by <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl">coffee</span> & <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-7xl">commits</span>
               </h2>
               <p className="text-gray-400 font-mono text-[10px] uppercase tracking-[0.4em] mt-6">A chronicle of persistence and problem solving.</p>
             </motion.div>
@@ -118,10 +118,6 @@ export default function GithubHeatmap() {
       </div>
 
       <style jsx>{`
-        .font-accent {
-          font-family: var(--font-accent);
-          font-weight: 400;
-        }
         :global(.react-activity-calendar text) {
           fill: #9ca3af !important; /* gray-400 */
         }

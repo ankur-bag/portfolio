@@ -6,15 +6,22 @@
   --color-accent: #ff6b00;
   --color-gray-soft: #f4f4f4;
   --color-gray-border: #e0e0e0;
-  
-  --font-sans: var(--font-geist-sans), "Inter", sans-serif;
-  --font-mono: var(--font-geist-mono), monospace;
-  --font-accent: var(--font-quintessential), cursive;
+}
+
+:root {
+  --font-sans: 'Google Sans Flex', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Quintessential', serif;
+  /* Add an alias for compatibility with existing components */
+  --font-accent: var(--font-display);
 }
 
 body {
   font-family: var(--font-sans);
-  font-weight: 400; /* Strict non-bold weight */
+}
+
+/* Target all words using the font-accent class, as requested by the user */
+.font-accent {
+  font-family: var(--font-display) !important;
 }
 
 
@@ -51,7 +58,6 @@ html.lenis {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
 }
 

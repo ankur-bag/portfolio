@@ -42,7 +42,7 @@ export default function Experience() {
              viewport={{ once: true }}
            >
               <h2 className="text-6xl md:text-9xl font-normal  tracking-tighter text-black leading-none">
-                Journey <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-8xl font-normal">milestones</span>
+                Journey <br /> <span className="font-accent italic text-accent lowercase tracking-normal text-5xl md:text-8xl font-normal">milestone</span>
               </h2>
               <div className="flex items-center gap-4 mt-8">
                  <div className="h-px w-20 bg-accent/30" />
@@ -115,12 +115,6 @@ export default function Experience() {
         </div>
       </div>
       
-      <style jsx>{`
-        .font-accent {
-          font-family: var(--font-accent);
-          font-weight: 400;
-        }
-      `}</style>
     </section>
   );
 }
