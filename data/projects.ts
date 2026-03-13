@@ -18,7 +18,7 @@ export const projects = [
     description: "The official digital home for Google Developer Groups Community RCCIIT. A modern, high-performance portal showcasing vision, events, and initiatives.",
     tags: ["Next.js", "Typescript", "Framer Motion", "Frontend Libraries"],
     mainPortion: "Community Vision • Event Initiatives • Modern UX",
-    imageUrl: "https://i.postimg.cc/zXggxM9v/Whats-App-Image-2026-03-13-at-3-52-27-PM.jpg",
+    imageUrl: "https://i.postimg.cc/LXZTtZ5H/18dd1b12-2b95-499a-a67b-559b8624a958.jpg",
     liveUrl: "https://www.gdgcrcc.tech/",
     alt: "GDG on Campus RCCIIT - Official digital portal for Google Developer Groups community"
   },
@@ -31,7 +31,7 @@ export const projects = [
     mainPortion: "AI Image Gen • Smart Layouts • Professional Toolkit",
     liveUrl: "https://cosmic-canvas-delta.vercel.app/",
     githubUrl: "https://github.com/ankur-bag/Cosmic-Canvas",
-    imageUrl: "https://i.postimg.cc/nhs0F7kH/Whats-App-Image-2026-03-11-at-5-43-15-PM.jpg",
+    imageUrl: "https://i.postimg.cc/zXggxM9v/Whats-App-Image-2026-03-13-at-3-52-27-PM.jpg",
     alt: "Cosmic Canvas - AI powered design tool built with Fabric.js and Generative AI"
   },
   {
