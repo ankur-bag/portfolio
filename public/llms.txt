@@ -1,0 +1,32 @@
+Site: Ankur Bag Portfolio
+Author: Ankur Bag
+Role: Full Stack Developer & GenAI Builder
+URL: https://www.ankurbag.tech
+
+Summary:
+Ankur Bag is a Full Stack Developer specializing in AI-powered web applications and modern web technologies. He builds scalable, high-performance web solutions using Next.js and React, integrating Generative AI and RAG systems.
+
+Skills and Technologies:
+Next.js, React, Node.js, JavaScript, TypeScript, Tailwind CSS, Generative AI, RAG Systems, Full Stack Web Development.
+
+Experience:
+Frontend Developer at Resourcio Pvt Ltd
+Web Associate at GDG on Campus RCCIIT
+
+Major Projects:
+Cosmic Canvas - AI-powered design tool built with Fabric.js and Generative AI.
+Bihaan '25 Website - Official event website for RCCIIT's flagship festival.
+GDGC RCCIIT Official Website - Modern portal for Google Developer Groups Community.
+Code Reviewer - AI-powered service using Gemini model for automated code feedback.
+Attendance Buddy - Tap-to-generate attendance lists for engineering lectures.
+Zynor - Cutting-edge Image and Video generation model platform.
+
+Hackathon Achievements:
+Hello World Hacks – Best Beginner’s Team
+ShowcaseX × Techsprint – Hackathon Winner
+Double Slash 4.0 – Hackathon Winner
+
+Contact:
+GitHub: https://github.com/ankur-bag
+LinkedIn: https://linkedin.com/in/ankur-bag
+Twitter/X: https://twitter.com/ankur_bag

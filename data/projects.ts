@@ -8,7 +8,8 @@ export const projects = [
     mainPortion: "Festival Vision • Smooth UX • Interactive Event Map",
     liveUrl: "https://bihan25.vercel.app/",
     githubUrl: "https://github.com/ankur-bag/bihan25-website",
-    imageUrl: "https://i.postimg.cc/sgBwjScv/Whats-App-Image-2026-03-11-at-5-43-45-PM.jpg"
+    imageUrl: "https://i.postimg.cc/sgBwjScv/Whats-App-Image-2026-03-11-at-5-43-45-PM.jpg",
+    alt: "Bihaan 2025 - Official event website for RCCIIT flagship festival with Framer Motion animations"
   },
   {
     id: "02",
@@ -18,7 +19,8 @@ export const projects = [
     tags: ["Next.js", "Typescript", "Framer Motion", "Frontend Libraries"],
     mainPortion: "Community Vision • Event Initiatives • Modern UX",
     imageUrl: "https://i.postimg.cc/LXZTtZ5H/18dd1b12-2b95-499a-a67b-559b8624a958.jpg",
-    liveUrl: "https://www.gdgcrcc.tech/"
+    liveUrl: "https://www.gdgcrcc.tech/",
+    alt: "GDG on Campus RCCIIT - Official digital portal for Google Developer Groups community"
   },
   {
     id: "03",
@@ -29,7 +31,8 @@ export const projects = [
     mainPortion: "AI Image Gen • Smart Layouts • Professional Toolkit",
     liveUrl: "https://cosmic-canvas-delta.vercel.app/",
     githubUrl: "https://github.com/ankur-bag/Cosmic-Canvas",
-    imageUrl: "https://i.postimg.cc/nhs0F7kH/Whats-App-Image-2026-03-11-at-5-43-15-PM.jpg"
+    imageUrl: "https://i.postimg.cc/nhs0F7kH/Whats-App-Image-2026-03-11-at-5-43-15-PM.jpg",
+    alt: "Cosmic Canvas - AI powered design tool built with Fabric.js and Generative AI"
   },
   {
      id: "04",
@@ -39,7 +42,8 @@ export const projects = [
      tags: ["Frontend", "Next.js", "Typescript", "Frammer Motion"],
      mainPortion: "Modern UI • Image and Video Generation",
      liveUrl: "https://zynor-lyart.vercel.app/",
-     imageUrl: "https://i.postimg.cc/QdB085b9/Whats-App-Image-2026-03-11-at-5-46-04-PM.jpg"
+     imageUrl: "https://i.postimg.cc/QdB085b9/Whats-App-Image-2026-03-11-at-5-46-04-PM.jpg",
+    alt: "Zynor - AI image and video generation platform for creative output"
   },
   {
      id: "05",
@@ -49,7 +53,8 @@ export const projects = [
      tags: ["Next.js", "Typescript", "Frontend", "Frammer Motion"],
      mainPortion: "Company Vision • Service Showcase • Modern UI",
      imageUrl: "https://i.postimg.cc/wjt0qJV1/Whats-App-Image-2026-03-11-at-5-48-22-PM.jpg",
-     liveUrl: "https://www.resourcio.in/"
+    liveUrl: "https://www.resourcio.in/",
+    alt: "Resourcio Pvt Ltd - Official corporate platform for software services and impact"
   },
   {
     id: "06",
@@ -60,7 +65,8 @@ export const projects = [
     mainPortion: "Automated Reviews • Structured Feedback • Retry Logic",
     liveUrl: "https://ai-powered-code-reviewer-swart.vercel.app/",
     githubUrl: "https://github.com/ankur-bag/AI-Powered-Code-Reviewer-",
-    imageUrl: "https://i.postimg.cc/rwbSFwyY/Whats-App-Image-2026-03-11-at-7-11-19-PM-(1).jpg"
+    imageUrl: "https://i.postimg.cc/rwbSFwyY/Whats-App-Image-2026-03-11-at-7-11-19-PM-(1).jpg",
+    alt: "CodeZen - AI code reviewer using Gemini model for structured feedback"
   },
   {
      id: "07",
@@ -71,6 +77,7 @@ export const projects = [
      mainPortion: "No Databases • One-Tap List Gen • Lazy Engineer's Tool",
      liveUrl: "https://attendance-buddy-three.vercel.app/",
      githubUrl: "https://github.com/ankur-bag/Attendance-Buddy",
-     imageUrl: "https://i.postimg.cc/Gpyk5TwV/Whats-App-Image-2026-03-11-at-8-28-11-PM.jpg"
+     imageUrl: "https://i.postimg.cc/Gpyk5TwV/Whats-App-Image-2026-03-11-at-8-28-11-PM.jpg",
+    alt: "Attendance Buddy - Automation tool for one-tap student attendance generation"
   }
 ];

@@ -151,9 +151,17 @@ export default function Hero() {
                 >
                   <div className="absolute inset-x-0 bottom-0 h-0 bg-accent group-hover:h-full transition-all duration-500 ease-out opacity-[0.03] pointer-events-none" />
                   <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest text-gray-700 group-hover:text-accent transition-colors">Download CV</span>
-                  <div className="relative z-10 p-1 bg-gray-50 group-hover:bg-accent/10 rounded-lg transition-colors overflow-hidden">
-                    <Download size={14} className="text-gray-400 group-hover:text-accent group-hover:-translate-y-full transition-transform duration-500" />
-                    <Download size={14} className="text-accent absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 p-1" />
+                  <div className="relative z-10 p-2 bg-gray-50 group-hover:bg-accent/10 rounded-full transition-all duration-500 overflow-hidden">
+                    <motion.div
+                      whileHover={{ y: [0, -4, 0] }}
+                      transition={{ 
+                        duration: 0.6, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
+                    >
+                      <Download size={14} className="text-gray-400 group-hover:text-accent transition-colors" />
+                    </motion.div>
                   </div>
                 </motion.a>
 

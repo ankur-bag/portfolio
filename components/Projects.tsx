@@ -40,7 +40,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
 
         <div className="flex flex-col gap-[10vw]">
           {displayedProjects.map((project, index) => (
-            <div key={project.id} className="group relative">
+            <article key={project.id} className="group relative">
                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                   <div className="lg:col-span-1 hidden lg:block">
                      <span className="text-[8vw] font-normal text-black/[0.04] leading-none transition-colors group-hover:text-accent/6">
@@ -87,7 +87,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
                            </span>
                         ))}
                      </div>
- 
+  
                      <div className="flex gap-8">
                         {project.liveUrl && (
                           <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.liveUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
@@ -111,8 +111,9 @@ export default function Projects({ limit, title }: ProjectsProps) {
                         {project.imageUrl ? (
                           <img 
                             src={project.imageUrl} 
-                            alt={project.title}
+                            alt={(project as any).alt || project.title}
                             className="w-full h-full object-cover"
+                            loading={index < 2 ? "eager" : "lazy"}
                           />
                         ) : (
                           <Code2 size={100} className="text-black/[0.03] group-hover/img:text-accent/10 transition-colors duration-1000" />
@@ -142,7 +143,7 @@ export default function Projects({ limit, title }: ProjectsProps) {
                {index !== displayedProjects.length - 1 && (
                   <div className="mt-24 w-full h-px bg-gradient-to-r from-transparent via-black/[0.05] to-transparent" />
                )}
-            </div>
+            </article>
           ))}
         </div>
 
