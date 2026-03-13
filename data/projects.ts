@@ -18,7 +18,7 @@ export const projects = [
     description: "The official digital home for Google Developer Groups Community RCCIIT. A modern, high-performance portal showcasing vision, events, and initiatives.",
     tags: ["Next.js", "Typescript", "Framer Motion", "Frontend Libraries"],
     mainPortion: "Community Vision • Event Initiatives • Modern UX",
-    imageUrl: "https://i.postimg.cc/LXZTtZ5H/18dd1b12-2b95-499a-a67b-559b8624a958.jpg",
+    imageUrl: "https://i.postimg.cc/zXggxM9v/Whats-App-Image-2026-03-13-at-3-52-27-PM.jpg",
     liveUrl: "https://www.gdgcrcc.tech/",
     alt: "GDG on Campus RCCIIT - Official digital portal for Google Developer Groups community"
   },
