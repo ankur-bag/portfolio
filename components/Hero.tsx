@@ -181,7 +181,7 @@ export default function Hero() {
             { label: "Available for", val: "Freelance & Roles", icon: <Globe size={10} className="text-accent" /> },
             { label: "Specialization", val: "GenAI & Fullstack" },
             { label: "Contact", val: "Kolkata, India" },
-            { label: "Opportunities", val: "Open for Internships" },
+            { label: "Opportunities", val: "Open for Remote Internships" },
           ].map((item, i) => (
             <div key={i} className="flex flex-col gap-2">
               <span className="text-[8px] font-medium uppercase tracking-[0.3em] text-gray-400 flex items-center gap-2">
