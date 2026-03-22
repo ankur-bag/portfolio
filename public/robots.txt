@@ -1,4 +1,23 @@
 User-agent: *
 Allow: /
 
+# Specifically allow major AI LLM bots to index the portfolio
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://www.ankurbag.tech/sitemap.xml

@@ -1,32 +1,95 @@
-Site: Ankur Bag Portfolio
-Author: Ankur Bag
-Role: Full Stack Developer & GenAI Builder
-URL: https://www.ankurbag.tech
+# Ankur Bag - Full Stack Developer & GenAI Builder
 
-Summary:
-Ankur Bag is a Full Stack Developer specializing in AI-powered web applications and modern web technologies. He builds scalable, high-performance web solutions using Next.js and React, integrating Generative AI and RAG systems.
+## About Me
+Based in Kolkata, I'm a developer working at the intersection of design, engineering, and intelligent systems. Currently pursuing Information Technology (IT) at RCCIIT, I build products across web platforms, AI systems, and automation, turning ambitious ideas into real, usable software.
 
-Skills and Technologies:
-Next.js, React, Node.js, JavaScript, TypeScript, Tailwind CSS, Generative AI, RAG Systems, Full Stack Web Development.
+My work spans full-stack development, AI integrations, and scalable digital tools, with a strong focus on crafting interfaces that feel as good as they function. I care about building products that are not just technically solid, but thoughtfully designed and genuinely useful.
 
-Experience:
-Frontend Developer at Resourcio Pvt Ltd
-Web Associate at GDG on Campus RCCIIT
+- **B.Tech:** IT
+- **Location:** West Bengal, India
+- **Focus:** Full Stack with GenAI
+- **Status:** Active
+- **Website:** https://www.ankurbag.tech
+- **GitHub:** https://github.com/ankur-bag
 
-Major Projects:
-Cosmic Canvas - AI-powered design tool built with Fabric.js and Generative AI.
-Bihaan '25 Website - Official event website for RCCIIT's flagship festival.
-GDGC RCCIIT Official Website - Modern portal for Google Developer Groups Community.
-Code Reviewer - AI-powered service using Gemini model for automated code feedback.
-Attendance Buddy - Tap-to-generate attendance lists for engineering lectures.
-Zynor - Cutting-edge Image and Video generation model platform.
+---
 
-Hackathon Achievements:
-Hello World Hacks – Best Beginner’s Team
-ShowcaseX × Techsprint – Hackathon Winner
-Double Slash 4.0 – Hackathon Winner
+## Experience
 
-Contact:
-GitHub: https://github.com/ankur-bag
-LinkedIn: https://linkedin.com/in/ankur-bag
-Twitter/X: https://twitter.com/ankur_bag
+### Frontend Developer @ Resourcio Pvt. Ltd.
+**Status:** INTERN | **Period:** Nov 2025 — Present
+Architecting and developing frontend systems for multiple high-impact platforms:
+- **Zynor** — AI image & video generation platform
+- **Apertre 3.0** — 30-day open-source program by the Resourcio Community
+- **Resourcio Official Website** — company website and digital presence
+**Highlights:** Next.js, TypeScript
+
+### Web Associate @ Google Developer's Groups on Campus RCCIIT
+**Status:** Associate | **Period:** Oct 2025 — Present
+Architected and developed the official website for Google Developer's Groups on Campus RCCIIT, enhancing the digital presence of the campus developer community.
+**Highlights:** Next.js, Engineering, Web Associate
+
+---
+
+## Tech Stack
+
+### Languages
+TypeScript, JavaScript, Python, Java, C
+
+### Web & Backend
+Next.js, React.js, Node.js, Express.js, FastAPI, Flask, MongoDB, Firebase, Socket.io, JWT
+
+### UI, 3D & Animation
+Framer Motion, GSAP, Three.js, WebGL, TailwindCSS
+
+### Tools & Platforms
+Git, GitHub, Vercel, Render, Postman
+
+### Data & Design
+Figma, Canva, NumPy, Pandas
+
+---
+
+## Projects
+
+### 01. Bihaan 2025
+**Category:** EVENT • UI/UX • ANIMATION
+The official event website for RCCIIT's flagship festival Bihaan’25. Features complex Framer Motion choreographies and a seamless responsive architecture.
+**Tech:** Next.js, Tailwind CSS, Animation
+**Live URL:** https://bihan25.vercel.app/
+
+### 02. GDGoC RCCIIT
+**Category:** COMMUNITY • WEB • PORTAL
+The official digital home for Google Developer Groups Community RCCIIT. A modern, high-performance portal showcasing vision, events, and initiatives.
+**Tech:** Next.js, Typescript, Framer Motion, Frontend Libraries
+**Live URL:** https://www.gdgcrcc.tech/
+
+### 03. Cosmic Canvas
+**Category:** AI • DESIGN • CREATIVITY
+AI-generated designs with human-level control. Cosmic Canvas bridges the gap between raw AI creativity and precise, layer-based editing for professional results.
+**Tech:** Hugging Face, Fabric.js, Python Flask
+**Live URL:** https://cosmic-canvas-delta.vercel.app/
+
+### 04. Zynor
+**Category:** AI • GENERATION • MODEL
+A cutting-edge Image and Video generation model platform. Built for high-speed creative output and seamless user interaction.
+**Tech:** Frontend, Next.js, Typescript, Frammer Motion
+**Live URL:** https://zynor-lyart.vercel.app/
+
+### 05. Resourcio Pvt Ltd
+**Category:** COMPANY • OFFICIAL • WEB
+The official digital presence for Resourcio Pvt Ltd. A high-performance corporate platform showcasing services, mission, and professional impact.
+**Tech:** Next.js, Typescript, Frontend, Frammer Motion
+**Live URL:** https://www.resourcio.in/
+
+### 06. CodeZen
+**Category:** AI • DEVELOPMENT • TOOL
+An AI-powered service using Google's Gemini model to analyze code snippets and provide structured, actionable, and detailed feedback to developers.
+**Tech:** Gemini AI, Node.js, React
+**Live URL:** https://ai-powered-code-reviewer-swart.vercel.app/
+
+### 07. Attendance Buddy
+**Category:** AUTOMATION • UTILITY • WEB
+Engineered for efficiency. Tap-to-generate attendance lists for engineering lectures, eliminating the chore of manual roll-call collection.
+**Tech:** HTML, CSS, JS, Automation
+**Live URL:** https://attendance-buddy-three.vercel.app/

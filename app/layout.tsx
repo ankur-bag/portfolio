@@ -42,6 +42,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.ankurbag.tech",
+    types: {
+      "text/plain": "https://www.ankurbag.tech/llms.txt",
+      "text/markdown": "https://www.ankurbag.tech/llms.txt",
+    },
   },
   verification: {
     google: "jHkctzXqPaYapbRARvJD-feb542ZJoNsvBqf1HarIIo",
