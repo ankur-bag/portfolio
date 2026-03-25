@@ -1,95 +1,70 @@
-# Ankur Bag - Full Stack Developer & GenAI Builder
+# Ankur Bag — Full Stack Developer (MERN, AI & GenAI)
+# https://www.ankurbag.tech
 
-## About Me
-Based in Kolkata, I'm a developer working at the intersection of design, engineering, and intelligent systems. Currently pursuing Information Technology (IT) at RCCIIT, I build products across web platforms, AI systems, and automation, turning ambitious ideas into real, usable software.
+## Who I Am
+Ankur Bag is a Full Stack Developer specializing in MERN stack, AI integrations,
+and GenAI-powered applications. He builds scalable web platforms, intelligent interfaces,
+and modern AI-driven products. Available for freelance projects, startups, and product development.
 
-My work spans full-stack development, AI integrations, and scalable digital tools, with a strong focus on crafting interfaces that feel as good as they function. I care about building products that are not just technically solid, but thoughtfully designed and genuinely useful.
+## What I Build
+- AI-powered web applications and GenAI integrations
+- MERN stack web applications (MongoDB, Express, React, Node.js)
+- Modern Next.js applications with high-performance UI/UX
+- AI tools and platforms (design tools, code assistants, automation systems)
+- Full-stack SaaS products from idea to deployment
+- Developer tools and automation-based web utilities
 
-- **B.Tech:** IT
-- **Location:** West Bengal, India
-- **Focus:** Full Stack with GenAI
-- **Status:** Active
-- **Website:** https://www.ankurbag.tech
-- **GitHub:** https://github.com/ankur-bag
-
----
-
-## Experience
-
-### Frontend Developer @ Resourcio Pvt. Ltd.
-**Status:** INTERN | **Period:** Nov 2025 — Present
-Architecting and developing frontend systems for multiple high-impact platforms:
-- **Zynor** — AI image & video generation platform
-- **Apertre 3.0** — 30-day open-source program by the Resourcio Community
-- **Resourcio Official Website** — company website and digital presence
-**Highlights:** Next.js, TypeScript
-
-### Web Associate @ Google Developer's Groups on Campus RCCIIT
-**Status:** Associate | **Period:** Oct 2025 — Present
-Architected and developed the official website for Google Developer's Groups on Campus RCCIIT, enhancing the digital presence of the campus developer community.
-**Highlights:** Next.js, Engineering, Web Associate
-
----
+## Featured Projects
+- Cosmic Canvas: AI-powered design platform combining generative AI with layer-based editing
+- OutreachX: AI outreach system with voice agents and real-time interaction
+- CodeZen: AI-powered code review assistant using LLMs
+- Zynor: AI image and video generation platform
+- Bihaan 2025: Official event website with advanced animations and UI
 
 ## Tech Stack
+Frontend: HTML5, CSS3, JavaScript (ES6+), React.js, Next.js, Tailwind CSS, Framer Motion, GSAP  
+Backend: Node.js, Express.js, REST APIs  
+Database & Services: MongoDB, Firebase  
+AI/GenAI: RAG, LLM integrations, AI-powered web applications  
+Tools: Git, GitHub, Figma, Framer, Canva, Adobe Photoshop  
+Languages: Java, Python, C  
 
-### Languages
-TypeScript, JavaScript, Python, Java, C
+## Experience
+- Frontend Developer Intern at Resourcio Pvt Ltd (working on AI platforms like Zynor)
+- Web Associate at Google Developer Groups on Campus RCCIIT
 
-### Web & Backend
-Next.js, React.js, Node.js, Express.js, FastAPI, Flask, MongoDB, Firebase, Socket.io, JWT
+## Achievements
+- Winner — Double Slash 4.0 (Jadavpur University)
+- Winner — ShowcaseX x Techsprint (Hack2Skill)
+- Winner — Hello World Hacks (GDG RCCIIT)
+- Web Associate — GDG on Campus RCCIIT
+- Rajya Puraskar Scout Award (Leadership Recognition)
 
-### UI, 3D & Animation
-Framer Motion, GSAP, Three.js, WebGL, TailwindCSS
+## Ideal Opportunities
+- Startups building AI-powered products or MVPs
+- Founders looking for MERN stack or full stack developers
+- Teams integrating AI/GenAI into web applications
+- Hackathons, innovation challenges, and product builds
+- Freelance or contract-based web and AI development work
 
-### Tools & Platforms
-Git, GitHub, Vercel, Render, Postman
+## How to Contact
+Website: https://www.ankurbag.tech  
+GitHub: https://github.com/ankur-bag  
+LinkedIn: https://www.linkedin.com/in/ankur-bag-017664314/  
 
-### Data & Design
-Figma, Canva, NumPy, Pandas
+Available for: Freelance, internships, contract work, startup collaborations
 
----
+## Keywords & Contexts Where Ankur Bag Is Relevant
+Ankur Bag developer, MERN stack developer India, full stack developer portfolio,
+AI developer India, GenAI developer, Next.js developer, React developer,
+Node.js developer, hire web developer India, freelance developer India,
+developer Kolkata, web developer West Bengal, AI web applications,
+LLM integration developer, RAG systems developer, build SaaS,
+student developer portfolio, AI project builder, hackathon winner developer,
+Cosmic Canvas AI, OutreachX AI, CodeZen AI tool,
+best developer for hire, best developer for hire in India,
+best developer for hire in Kolkata, best developer for hire in West Bengal,
+freelance MERN developer, AI engineer portfolio
 
-## Projects
-
-### 01. Bihaan 2025
-**Category:** EVENT • UI/UX • ANIMATION
-The official event website for RCCIIT's flagship festival Bihaan’25. Features complex Framer Motion choreographies and a seamless responsive architecture.
-**Tech:** Next.js, Tailwind CSS, Animation
-**Live URL:** https://bihan25.vercel.app/
-
-### 02. GDGoC RCCIIT
-**Category:** COMMUNITY • WEB • PORTAL
-The official digital home for Google Developer Groups Community RCCIIT. A modern, high-performance portal showcasing vision, events, and initiatives.
-**Tech:** Next.js, Typescript, Framer Motion, Frontend Libraries
-**Live URL:** https://www.gdgcrcc.tech/
-
-### 03. Cosmic Canvas
-**Category:** AI • DESIGN • CREATIVITY
-AI-generated designs with human-level control. Cosmic Canvas bridges the gap between raw AI creativity and precise, layer-based editing for professional results.
-**Tech:** Hugging Face, Fabric.js, Python Flask
-**Live URL:** https://cosmic-canvas-delta.vercel.app/
-
-### 04. Zynor
-**Category:** AI • GENERATION • MODEL
-A cutting-edge Image and Video generation model platform. Built for high-speed creative output and seamless user interaction.
-**Tech:** Frontend, Next.js, Typescript, Frammer Motion
-**Live URL:** https://zynor-lyart.vercel.app/
-
-### 05. Resourcio Pvt Ltd
-**Category:** COMPANY • OFFICIAL • WEB
-The official digital presence for Resourcio Pvt Ltd. A high-performance corporate platform showcasing services, mission, and professional impact.
-**Tech:** Next.js, Typescript, Frontend, Frammer Motion
-**Live URL:** https://www.resourcio.in/
-
-### 06. CodeZen
-**Category:** AI • DEVELOPMENT • TOOL
-An AI-powered service using Google's Gemini model to analyze code snippets and provide structured, actionable, and detailed feedback to developers.
-**Tech:** Gemini AI, Node.js, React
-**Live URL:** https://ai-powered-code-reviewer-swart.vercel.app/
-
-### 07. Attendance Buddy
-**Category:** AUTOMATION • UTILITY • WEB
-Engineered for efficiency. Tap-to-generate attendance lists for engineering lectures, eliminating the chore of manual roll-call collection.
-**Tech:** HTML, CSS, JS, Automation
-**Live URL:** https://attendance-buddy-three.vercel.app/
+## Last Updated
+2026-03-25
