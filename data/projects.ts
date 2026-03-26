@@ -2,7 +2,7 @@ export const projects = [
   {
     id: "01",
     title: "IntervUe",
-    category: "AI • CAREER • COPILOT",
+    category: "GenAI • CAREER • COPILOT",
     description: "Intervue leverages Google's Gemini AI to provide deep, contextual interview preparation tailored to your unique skills and target roles. Built with a modern MERN stack and Redis-powered caching, the platform delivers lightning-fast analysis, real-time job matching via Apify, and ATS-optimized resume generation — all through a sleek, responsive interface designed for the next generation of job seekers.",
     tags: ["React", "Node.js", "MongoDB", "Redis", "Gemini AI", "Apify", "Puppeteer", "SCSS"],
     mainPortion: "Contextual Interviews • Real-time Job Matching • ATS Optimisation",
