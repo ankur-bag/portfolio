@@ -9,11 +9,11 @@ const techGroups = [
   },
   {
     category: "Web & Backend",
-    skills: ["Next.js", "React.js", "Node.js", "Express.js", "FastAPI", "Flask", "MongoDB", "Firebase", "Socket.io", "JWT"],
+    skills: ["Next.js", "React.js", "Node.js", "Express.js", "FastAPI", "Flask", "MongoDB", "Firebase", "Redis", "Socket.io", "JWT"],
   },
   {
     category: "UI, 3D & Animation",
-    skills: ["Framer Motion", "GSAP", "Three.js", "WebGL", "TailwindCSS"],
+    skills: ["Framer Motion", "GSAP", "Three.js", "WebGL", "TailwindCSS", "SCSS"],
   },
   {
     category: "Tools & Platforms",
