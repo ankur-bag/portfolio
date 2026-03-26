@@ -7,6 +7,7 @@ export const projects = [
     tags: ["React", "Node.js", "MongoDB", "Redis", "Gemini AI", "Apify", "Puppeteer", "SCSS"],
     mainPortion: "Contextual Interviews • Real-time Job Matching • ATS Optimisation",
     liveUrl: "https://intervue-me.vercel.app/",
+    githubUrl: "https://github.com/ankur-bag/IntervUe",
     imageUrl: "https://i.postimg.cc/JnVP9wLM/Whats-App-Image-2026-03-26-at-7-55-27-PM.jpg",
     alt: "IntervUe - AI-powered career copilot for interview preparation and job matching"
   },
