@@ -32,6 +32,15 @@ const achievements = [
     tech: "GDG on Campus • RCCTechz",
     date: "2024",
   },
+  {
+    id: "04",
+    title: "ICEBERG HACKS-PRO EDITION",
+    venue: "IE(I) Student Chapter, RCCIIT",
+    award: "2ND RUNNER UP",
+    description: "Secured the 2nd Runner up position in ICEBERG HACKS-PRO EDITION 2025-26. Issued by IE(I) Student Chapter, RCCIIT.",
+    tech: "IE(I) Student Chapter",
+    date: "2025-26",
+  },
 ];
 
 export default function Hackathons() {
@@ -69,28 +78,28 @@ export default function Hackathons() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className="group relative rounded-[2.5rem] overflow-hidden border border-black/[0.03] bg-black/[0.01] transition-all duration-700 hover:border-accent/30 hover:bg-white hover:shadow-2xl hover:shadow-black/[0.03]"
+              className="group relative rounded-[1.5rem] overflow-hidden border border-black/[0.03] bg-black/[0.01] transition-all duration-700 hover:border-accent/30 hover:bg-white hover:shadow-2xl hover:shadow-black/[0.03]"
             >
-              <div className="p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-10">
-                <div className="flex items-center gap-6 xl:gap-12 flex-1">
-                   <div className="text-4xl xl:text-5xl font-normal font-mono text-black/[0.12] group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
+              <div className="p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="flex items-center gap-4 xl:gap-8 flex-1">
+                   <div className="text-3xl xl:text-4xl font-normal font-mono text-black/[0.12] group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
                    <div className="flex flex-col">
                       <div className="flex items-center gap-3 mb-2">
                          <span className="w-1.5 h-1.5 rounded-full bg-accent" />
                          <span className="text-accent font-medium text-[10px] uppercase tracking-widest">{item.award}</span>
                       </div>
-                      <h3 className="text-3xl xl:text-5xl font-normal uppercase text-black leading-tight group-hover:tracking-tight transition-all duration-700">{item.title}</h3>
+                      <h3 className="text-2xl xl:text-3xl font-normal uppercase text-black leading-tight group-hover:tracking-tight transition-all duration-700">{item.title}</h3>
                       <p className="text-[10px] font-mono text-gray-400 uppercase tracking-[0.3em] mt-3">{item.venue}</p>
                    </div>
                 </div>
 
-                <div className="flex items-center gap-10">
+                <div className="flex items-center gap-6">
                    <div className="hidden lg:block text-right space-y-2">
-                      <div className="text-[15px]  text-black uppercase tracking-widest">{item.date}</div>
+                      <div className="text-[14px] text-black uppercase tracking-widest">{item.date}</div>
                       <div className="text-[10px] font-medium text-gray-400 uppercase tracking-widest">{item.tech.split('•')[0]}</div>
                    </div>
-                   <div className="w-16 h-16 rounded-full border border-black/5 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all duration-700">
-                      {hoveredIndex === index ? <Minus size={24} /> : <Plus size={24} />}
+                   <div className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition-all duration-700">
+                      {hoveredIndex === index ? <Minus size={20} /> : <Plus size={20} />}
                    </div>
                 </div>
               </div>
@@ -105,12 +114,12 @@ export default function Hackathons() {
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="px-10 md:px-14 pb-14 pt-10 border-t border-black/5 bg-black/[0.01]">
-                      <div className="flex flex-col gap-6">
+                    <div className="px-6 md:px-8 pb-8 pt-6 border-t border-black/5 bg-black/[0.01]">
+                      <div className="flex flex-col gap-4">
                          <p className="text-[10px] font-bold text-accent uppercase tracking-widest flex items-center gap-2">
                             <Trophy size={14} /> Description
                          </p>
-                         <p className="text-gray-500 text-xl md:text-2xl font-medium leading-relaxed max-w-4xl">
+                         <p className="text-gray-500 text-base md:text-lg font-medium leading-relaxed max-w-4xl">
                             {item.description}
                          </p>
                       </div>
