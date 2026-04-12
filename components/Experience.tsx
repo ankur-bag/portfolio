@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, Info } from "lucide-react";
+import Image from "next/image";
+import { useMagnetic } from "@/lib/hooks/useMagnetic";
 
 const experiences = [
   {
@@ -82,9 +84,15 @@ export default function Experience() {
               
               <div className="lg:col-span-6">
                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-white border border-black/5 flex items-center justify-center overflow-hidden">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-black/5 flex items-center justify-center overflow-hidden relative">
                        {exp.logo ? (
-                         <img src={exp.logo} alt={exp.company} className="w-full h-full object-contain p-1" />
+                         <Image 
+                           src={exp.logo} 
+                           alt={exp.company} 
+                           fill 
+                           className="object-contain p-2" 
+                           sizes="48px"
+                         />
                        ) : (
                          <div className="w-full h-full bg-black text-white flex items-center justify-center font-accent italic text-xl">
                            {exp.company[0]}
@@ -106,8 +114,10 @@ export default function Experience() {
                     <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
                     <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-black/60 group-hover:text-black transition-colors">{exp.status}</span>
                  </div>
-                 <div className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-700">
-                    <Briefcase size={20} />
+                 <div ref={useMagnetic() as any} className="magnetic-wrap">
+                   <div className="w-12 h-12 rounded-full border border-black/5 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-700">
+                      <Briefcase size={20} />
+                   </div>
                  </div>
               </div>
             </motion.div>

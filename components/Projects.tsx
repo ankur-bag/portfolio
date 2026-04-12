@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Code2, Globe, Github } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
+
 import { projects } from "@/data/projects";
+import { useMagnetic } from "@/lib/hooks/useMagnetic";
+
 
 interface ProjectsProps {
   limit?: number;
@@ -90,16 +94,21 @@ export default function Projects({ limit, title }: ProjectsProps) {
   
                      <div className="flex gap-8">
                         {project.liveUrl && (
-                          <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.liveUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
-                              <Globe size={25} />
-                          </motion.a>
+                          <div ref={useMagnetic() as any} className="magnetic-wrap">
+                            <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.liveUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
+                                <Globe size={25} />
+                            </motion.a>
+                          </div>
                         )}
                         {project.githubUrl && (
-                          <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.githubUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
-                              <Github size={25} />
-                          </motion.a>
+                          <div ref={useMagnetic() as any} className="magnetic-wrap">
+                            <motion.a whileHover={{ scale: 1.2, y: -3 }} whileTap={{ scale: 0.9 }} href={project.githubUrl} target="_blank" className="flex items-center gap-3 text-sm font-normal uppercase tracking-widest text-black/40 hover:text-accent transition-colors">
+                                <Github size={25} />
+                            </motion.a>
+                          </div>
                         )}
                       </div>
+
                   </div>
 
                   <div className="lg:col-span-6 relative aspect-video overflow-hidden rounded-[2.5rem] border border-black/5 shadow-2xl shadow-black/[0.01] group/img bg-white">
@@ -109,12 +118,15 @@ export default function Projects({ limit, title }: ProjectsProps) {
                         className="w-full h-full bg-black/[0.01] flex items-center justify-center relative backdrop-blur-3xl overflow-hidden"
                      >
                         {project.imageUrl ? (
-                          <img 
+                          <Image 
                             src={project.imageUrl} 
                             alt={(project as any).alt || project.title}
-                            className="w-full h-full object-cover"
-                            loading={index < 2 ? "eager" : "lazy"}
+                            fill
+                            className="object-cover"
+                            priority={index < 2}
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                           />
+
                         ) : (
                           <Code2 size={100} className="text-black/[0.03] group-hover/img:text-accent/10 transition-colors duration-1000" />
                         )}
@@ -149,18 +161,21 @@ export default function Projects({ limit, title }: ProjectsProps) {
 
         {limit && projects.length > limit && (
           <div className="mt-32 flex justify-center">
-            <Link href="/projects">
-              <motion.a 
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="group relative inline-flex items-center gap-4 px-12 py-6 bg-black text-white rounded-full overflow-hidden transition-all duration-500 hover:bg-accent hover:gap-6 shadow-2xl shadow-black/10"
-              >
-                <span className="relative z-10 text-xs font-medium uppercase tracking-[0.3em]">View all Projects</span>
-                <ArrowUpRight size={18} className="relative z-10" />
-                <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-              </motion.a>
+            <Link href="/projects" passHref legacyBehavior>
+              <div ref={useMagnetic() as any} className="magnetic-wrap">
+                <motion.a 
+                  whileHover={{ scale: 1.02, y: -2 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="group relative inline-flex items-center gap-4 px-12 py-6 bg-black text-white rounded-full overflow-hidden transition-all duration-500 hover:bg-black/90 hover:gap-6 shadow-2xl shadow-black/10 cursor-pointer"
+                >
+                  <span className="relative z-10 text-xs font-medium uppercase tracking-[0.3em]">View all Projects</span>
+                  <ArrowUpRight size={18} className="relative z-10" />
+                  <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                </motion.a>
+              </div>
             </Link>
           </div>
+
         )}
       </div>
       

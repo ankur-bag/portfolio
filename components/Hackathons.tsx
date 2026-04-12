@@ -98,6 +98,14 @@ export default function Hackathons() {
                           layout
                           onMouseEnter={() => setHoveredIndex(item.id)}
                           onMouseLeave={() => setHoveredIndex(null)}
+                          onMouseMove={(e) => {
+                            const card = e.currentTarget;
+                            const rect = card.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            card.style.setProperty("--mouse-x", `${x}px`);
+                            card.style.setProperty("--mouse-y", `${y}px`);
+                          }}
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
@@ -108,6 +116,17 @@ export default function Hackathons() {
                           <div className="absolute left-[20px] md:left-[23px] top-0 bottom-1/2 w-[20px] md:w-[41px] border-l-2 border-b-2 border-black/5 rounded-bl-[2.5rem]" />
 
                           <div className="group relative rounded-[2rem] overflow-hidden border border-black/3 bg-black/1 transition-all duration-700 hover:border-accent/30 hover:bg-white hover:shadow-2xl hover:shadow-black/3">
+                            {/* Liquid Glow Effect */}
+                            <div 
+                              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+                              style={{
+                                background: `radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,107,0,0.06), transparent 40%)`
+                              }}
+                            />
+                            
+                            {/* Premium Inset Border */}
+                            <div className="absolute inset-[1px] rounded-[1.9rem] border border-white pointer-events-none z-10 opacity-40 shadow-inner" />
+
                             <div className="p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                               <div className="flex items-center gap-6 xl:gap-8 flex-1">
                                  <div className="text-3xl xl:text-4xl font-normal font-mono text-black/12 group-hover:text-accent/20 transition-colors duration-700">{item.id}</div>
@@ -139,7 +158,10 @@ export default function Hackathons() {
                                   initial={{ height: 0, opacity: 0 }}
                                   animate={{ height: "auto", opacity: 1 }}
                                   exit={{ height: 0, opacity: 0 }}
-                                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                  transition={{ 
+                                    height: { type: "spring", stiffness: 100, damping: 20 },
+                                    opacity: { duration: 0.4 }
+                                  }}
                                   className="overflow-hidden"
                                 >
                                   <div className="px-8 md:px-10 pb-10 pt-8 border-t border-black/5 bg-black/1">

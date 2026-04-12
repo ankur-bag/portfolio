@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { SmoothScroll, Preloader, Noise } from "@/components/ClientWrappers";
 
+
+
 import StructuredData from "@/components/StructuredData";
 import SEOContext from "@/components/SEOContext";
 
@@ -138,6 +140,8 @@ export default function RootLayout({
         <SEOContext />
         <Preloader />
         <SmoothScroll>
+
+
           {children}
         </SmoothScroll>
         <Noise />

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import { ArrowDownRight, Github, Mail, Globe, Linkedin, FileText, Download } from "lucide-react";
+import { useMagnetic } from "@/lib/hooks/useMagnetic";
+
 
 import { SpinningText } from "@/components/ui/basic";
 import BlurText from "@/components/ui/BlurText";
@@ -15,6 +17,14 @@ export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const title1Ref = useRef<HTMLSpanElement>(null);
   const subTextRef = useRef<HTMLParagraphElement>(null);
+  
+  const exploreRef = useMagnetic();
+  const downloadRef = useMagnetic();
+  const githubRef = useMagnetic();
+  const linkedinRef = useMagnetic();
+  const mailRef = useMagnetic();
+  const resumeRef = useMagnetic();
+
 
   useEffect(() => {
     const handleExit = () => setStartAnim(true);
@@ -38,7 +48,14 @@ export default function Hero() {
     // Small delay to ensure the preloader exit animation has started
     const timeout = setTimeout(() => {
       const ctx = gsap.context(() => {
-        const tl = gsap.timeline({ defaults: { ease: "expo.out" } });
+        const tl = gsap.timeline({ defaults: { ease: "custom" } });
+        
+        // Custom silky easing
+        gsap.registerEase("custom", (t) => {
+          // Equivalent to cubic-bezier(0.16, 1, 0.3, 1)
+          return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        });
+
 
         tl.fromTo(
           title1Ref.current,
@@ -71,7 +88,20 @@ export default function Hero() {
       className="min-h-screen flex flex-col justify-center px-6 md:px-12 relative overflow-hidden bg-white"
     >
       {/* Premium Design Elements */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <motion.div 
+          className="absolute w-[600px] h-[600px] bg-accent/5 blur-[120px] rounded-full"
+          animate={{
+            x: typeof window !== "undefined" ? undefined : 0,
+            y: typeof window !== "undefined" ? undefined : 0,
+          }}
+          style={{
+            left: "50%",
+            top: "50%",
+            x: "-50%",
+            y: "-50%",
+          }}
+        />
         <div className="absolute top-0 right-0 w-[60%] h-full bg-black/[0.005] skew-x-[-15deg] origin-top translate-x-1/4" />
         <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-12 opacity-[0.03]">
           {[...Array(12)].map((_, i) => (
@@ -79,6 +109,7 @@ export default function Hero() {
           ))}
         </div>
       </div>
+
 
       <div className="max-w-[1400px] mx-auto w-full relative z-10 py-20">
         <div className="flex flex-col gap-16 md:gap-24">
@@ -131,45 +162,50 @@ export default function Hero() {
 
             <div className="lg:col-span-4 flex flex-col gap-10 items-start lg:items-end">
               <div className="flex flex-wrap gap-4 hero-ui-stagger">
-                <motion.a
-                  href="#projects"
-                  whileHover={{ scale: 1.02, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium bg-black text-white px-7 py-4 md:px-10 md:py-5 rounded-full hover:bg-black/90 transition-all duration-700 shadow-2xl shadow-black/10 overflow-hidden"
-                >
-                  <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest">Explore Works</span>
-                  <ArrowDownRight size={16} className="relative z-10 group-hover:rotate-45 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.16, 1, 0.3, 1]" />
-                </motion.a>
+                <div ref={exploreRef as any} className="magnetic-wrap">
+                  <motion.a
+                    href="#projects"
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium bg-black text-white px-7 py-4 md:px-10 md:py-5 rounded-full hover:bg-black/90 transition-all duration-700 shadow-2xl shadow-black/10 overflow-hidden"
+                  >
+                    <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest">Explore Works</span>
+                    <ArrowDownRight size={16} className="relative z-10 group-hover:rotate-45 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-accent translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-[0.16, 1, 0.3, 1]" />
+                  </motion.a>
+                </div>
 
-                <motion.a
-                  href="/@ankur_bag-resume.pdf"
-                  download="Ankur_Bag_Resume.pdf"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium border border-black/30 px-7 py-4 md:px-10 md:py-5 rounded-full hover:border-accent transition-all duration-500 overflow-hidden"
-                >
-                  <div className="absolute inset-x-0 bottom-0 h-0 bg-accent group-hover:h-full transition-all duration-500 ease-out opacity-[0.03] pointer-events-none" />
-                  <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest text-gray-700 group-hover:text-accent transition-colors">Download CV</span>
-                  <div className="relative z-10 p-2 bg-gray-50 group-hover:bg-accent/10 rounded-full transition-all duration-500 overflow-hidden">
-                    <motion.div
-                      whileHover={{ y: [0, -4, 0] }}
-                      transition={{ 
-                        duration: 0.6, 
-                        repeat: Infinity, 
-                        ease: "easeInOut" 
-                      }}
-                    >
-                      <Download size={14} className="text-gray-400 group-hover:text-accent transition-colors" />
-                    </motion.div>
-                  </div>
-                </motion.a>
+                <div ref={downloadRef as any} className="magnetic-wrap">
+                  <motion.a
+                    href="/@ankur_bag-resume.pdf"
+                    download="Ankur_Bag_Resume.pdf"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group relative flex items-center gap-3 md:gap-4 text-sm font-medium border border-black/30 px-7 py-4 md:px-10 md:py-5 rounded-full hover:border-accent transition-all duration-500 overflow-hidden"
+                  >
+                    <div className="absolute inset-x-0 bottom-0 h-0 bg-accent group-hover:h-full transition-all duration-500 ease-out opacity-[0.03] pointer-events-none" />
+                    <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-widest text-gray-700 group-hover:text-accent transition-colors">Download CV</span>
+                    <div className="relative z-10 p-2 bg-gray-50 group-hover:bg-accent/10 rounded-full transition-all duration-500 overflow-hidden">
+                      <motion.div
+                        whileHover={{ y: [0, -4, 0] }}
+                        transition={{ 
+                          duration: 0.6, 
+                          repeat: Infinity, 
+                          ease: "easeInOut" 
+                        }}
+                      >
+                        <Download size={14} className="text-gray-400 group-hover:text-accent transition-colors" />
+                      </motion.div>
+                    </div>
+                  </motion.a>
+                </div>
 
                 <div className="flex gap-2">
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://github.com/ankur-bag" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="GitHub"><Github size={18} /></motion.a>
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://www.linkedin.com/in/ankur-bag-017664314/ " target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="LinkedIn"><Linkedin size={18} /></motion.a>
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com" target="_blank" rel="noopener noreferrer" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="Mail"><Mail size={18} /></motion.a>
-                  <motion.a whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="/@ankur_bag-resume.pdf" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="Resume"><FileText size={18} /></motion.a>
+                  <div ref={githubRef as any} className="magnetic-wrap"><motion.a aria-label="GitHub Profile" whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://github.com/ankur-bag" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="GitHub"><Github size={18} /></motion.a></div>
+                  <div ref={linkedinRef as any} className="magnetic-wrap"><motion.a aria-label="LinkedIn Profile" whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://www.linkedin.com/in/ankur-bag-017664314/ " target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="LinkedIn"><Linkedin size={18} /></motion.a></div>
+                  <div ref={mailRef as any} className="magnetic-wrap"><motion.a aria-label="Send Email" whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com" target="_blank" rel="noopener noreferrer" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="Mail"><Mail size={18} /></motion.a></div>
+                  <div ref={resumeRef as any} className="magnetic-wrap"><motion.a aria-label="View Resume" whileHover={{ scale: 1.1, y: -5 }} whileTap={{ scale: 0.9 }} href="/@ankur_bag-resume.pdf" target="_blank" className="p-5 rounded-full border border-black/5 hover:border-accent transition-colors bg-white shadow-sm flex items-center justify-center text-black hover:text-accent" title="Resume"><FileText size={18} /></motion.a></div>
+
                 </div>
               </div>
             </div>

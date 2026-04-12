@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useMagnetic } from "@/lib/hooks/useMagnetic";
+
 
 const navLinks = [
   { name: "ABOUT", href: "/#about" },
@@ -18,6 +20,8 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const contactRef = useMagnetic();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,37 +62,31 @@ export default function Navbar() {
       )}
     >
       <nav className="flex items-center justify-between">
-        <Link href="/" className="text-xl text-gray-400 font-normal tracking-tighter hover:text-accent transition-colors flex items-center gap-1">
-          AB<span className="text-accent italic font-accent">.</span>
-        </Link>
+        <div ref={useMagnetic() as any} className="magnetic-wrap">
+          <Link href="/" className="text-xl text-gray-400 font-normal tracking-tighter hover:text-accent transition-colors flex items-center gap-1">
+            AB<span className="text-accent italic font-accent">.</span>
+          </Link>
+        </div>
+
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-4 xl:gap-8">
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              onClick={(e) => !link.external && handleSmoothScroll(e, link.href)}
-              className="text-[10px] font-medium tracking-[0.2em] text-gray-500 hover:text-black transition-colors relative group"
-            >
-              {link.name}
-              <motion.span 
-                className="absolute -bottom-1 left-0 h-px bg-accent w-0 group-hover:w-full transition-all"
-              />
-            </Link>
+            <MagneticLink key={link.name} link={link} onClick={handleSmoothScroll} />
           ))}
-          <motion.a 
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-5 py-2 bg-black text-white text-[9px] font-medium uppercase tracking-widest rounded-full hover:bg-accent transition-all duration-500 shadow-sm"
-          >
-            Contact
-          </motion.a>
+          <div ref={contactRef as any} className="magnetic-wrap">
+            <motion.a 
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=ankurbag700@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2 bg-black text-white text-[9px] font-medium uppercase tracking-widest rounded-full hover:bg-accent transition-all duration-500 shadow-sm"
+            >
+              Contact
+            </motion.a>
+          </div>
+
         </div>
 
         {/* Mobile Toggle */}
@@ -133,3 +131,24 @@ export default function Navbar() {
     </header>
   );
 }
+
+function MagneticLink({ link, onClick }: { link: any, onClick: any }) {
+  const magneticRef = useMagnetic();
+  return (
+    <div ref={magneticRef as any} className="magnetic-wrap">
+      <Link
+        href={link.href}
+        target={link.external ? "_blank" : undefined}
+        rel={link.external ? "noopener noreferrer" : undefined}
+        onClick={(e) => !link.external && onClick(e, link.href)}
+        className="text-[10px] font-medium tracking-[0.2em] text-gray-500 hover:text-black transition-colors relative group block px-2 py-1"
+      >
+        {link.name}
+        <motion.span 
+          className="absolute -bottom-1 left-0 h-px bg-accent w-0 group-hover:w-full transition-all"
+        />
+      </Link>
+    </div>
+  );
+}
+
