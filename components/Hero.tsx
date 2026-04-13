@@ -111,8 +111,8 @@ export default function Hero() {
       </div>
 
 
-      <div className="max-w-[1400px] mx-auto w-full relative z-10 py-20">
-        <div className="flex flex-col gap-16 md:gap-24">
+      <div className="max-w-[1400px] mx-auto w-full relative z-10 py-12 md:py-20">
+        <div className="flex flex-col gap-20 md:gap-24 lg:gap-32">
 
           <div className="hero-ui-stagger flex items-center gap-4">
             <TextType 
@@ -121,7 +121,7 @@ export default function Hero() {
               pauseDuration={1500}
               showCursor
               cursorCharacter="_"
-              className="text-[10px] font-medium uppercase tracking-[0.5em] text-gray-400 mt-15"
+              className="text-[10px] md:text-[11px] font-medium uppercase tracking-[0.2em] md:tracking-[0.5em] text-gray-400 mt-15"
               deletingSpeed={50}
               cursorBlinkDuration={0.5}
             />
@@ -131,14 +131,14 @@ export default function Hero() {
           <div className="flex flex-col gap-4">
             <h1 className="leading-[0.8] tracking-tighter uppercase relative">
               <span className="overflow-visible block py-4 mb-2 px-2 -ml-2">
-                <span ref={title1Ref} className="block text-[15vw] lg:text-[clamp(8rem,11vw,12rem)] font-normal text-black whitespace-nowrap" style={{ opacity: 0 }}>
+                <span ref={title1Ref} className="block text-[15vw] lg:text-[clamp(6rem,9vw,9rem)] xl:text-[clamp(8rem,11vw,12rem)] font-normal text-black whitespace-nowrap" style={{ opacity: 0 }}>
                   Ankur <span className="text-accent italic font-accent lowercase tracking-normal inline-block pr-[0.1em]">bag</span>
                 </span>
               </span>
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <div className="lg:col-span-4">
               {showSubtext ? (
                 <div className="flex flex-wrap gap-x-[0.3em] text-xl md:text-3xl text-gray-400 leading-tight font-medium max-w-2xl">
