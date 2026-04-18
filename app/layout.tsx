@@ -94,7 +94,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       title,
       description:
-        "Full Stack Developer | MERN, AI & GenAI. Building real-world AI-powered products.",
+        "Full Stack Developer | MERN, Nextjs & GenAI. Building real-world AI-powered products.",
       card: "summary_large_image",
       creator: "@ankur_bag",
       images: [`${url}/preview.png`],

@@ -1,4 +1,4 @@
-# Ankur Bag — Full Stack Developer (MERN, AI & GenAI)
+# Ankur Bag — Full Stack Developer (MERN, Nextjs & GenAI)
 # https://www.ankurbag.tech
 
 ## Who I Am
